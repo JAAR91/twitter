@@ -6,6 +6,8 @@
         <div class="col-3">
             <h1>New Users Page</h1>
             <%= form_with model: @user do |f| %>
+                <%= f.label "Profile picture" %>
+                <%= f.file_field :avatar %>
                 <%= f.label 'Name', class: "my-2" %>
                 <%= f.text_field :name, class: "form-control" %>
                 <%= f.label 'Username', class: "my-2" %>
