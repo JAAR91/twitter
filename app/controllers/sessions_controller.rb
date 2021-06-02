@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.find(session[:user_id])
+    @user = User.find_by(username: params[:username])
     if @user.nil?
       redirect_to login_path
     else

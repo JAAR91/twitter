@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+ body, html {
+    height: 100%;
+}
+
+ .left_bar_style {
+     background-color: rgb(33, 44, 75);
+     height: 100%;
+     max-height: 100%;
+     position: sticky;
+ }
+
+ .user_avatar {
+     height: 90px;
+     width: 90px;
+ }
+
+ .left-bar-t-color {
+     color: rgb(203, 206, 206);
+ }
+
+ .navbar-link-list {
+     text-decoration: none;
+     padding: 15px 0px 15px 0px;
+     text-align: center;
+     color: rgb(206, 206, 206);
+ }
+
+ .topbar-shadow {
+     box-shadow: inset 5px -10px 50px rgba(9, 26, 73, 0.507);
+ }
+
+ .rigth_bar_style {
+    background-color: rgb(116, 116, 116);
+    height: 100%;
+    max-height: 100%;
+    position: sticky;
+ }

@@ -1,16 +1,21 @@
 module ApplicationHelper
     def logged_in?
         !!session[:user_id]
-      end
+    end
     
-      def current_user
-        @current_user ||= User.find_by_id(session[:user_id]) if !!session[:user_id]
-      end
-    
-      def alert_color(type)
-        return 'alert-success' if type == 'success'
-        return 'alert-info' if type == 'notice'
-        return 'alert-warning' if type == 'warning'
-        return 'alert-danger' if type == 'danger'
-      end
+    def current_user
+      @current_user ||= User.find_by_id(session[:user_id]) if !!session[:user_id]
+    end
+
+    def left_bar_render
+      render "navbars/leftbar" if logged_in?
+    end
+
+    def top_bar_render
+      render "navbars/topbar" if logged_in?
+    end
+
+    def rigth_bar_render
+      render "navbars/rigthbar" if logged_in?
+    end
 end
