@@ -10,19 +10,34 @@
                 <div class="container">
                     <h1>Register</h1>
                     <%= form_with model: @user do |f| %>
-                        <%= f.label 'Enter your name:', class: "my-2" %>
-                        <%= f.text_field :name, class: "form-control shadow", placeholder:'Your name here' %>
-                        <% @user.errors.full_messages_for(:name).each do |message| %>
+                        <%= f.label 'Enter your username:', class: "my-2" %>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <%= text_field_tag (:username), "",class: "form-control rounded-end", placeholder:'Username' %> <br>
+                        </div>
+                        <% @user.errors.full_messages_for(:username).each do |message| %>
                             <div class="text-muted">
                                 <%= message %>
                             </div>
                         <% end %>
-                        <%= f.label 'Enter your username:', class: "my-2" %>
-                        <%= f.text_field :username, class: "form-control shadow", placeholder:'Username' %>
-                        <%= f.label 'Enter your password', class: "my-2" %>
-                        <%= f.password_field :password, class: "form-control shadow", placeholder:'Enter your password' %>
-                        <%= f.label 'Enter your password again', class: "my-2" %>
-                        <%= f.password_field :password_confirmation, class: "form-control shadow", placeholder:'Re-enter password' %>
+                        <%= f.label 'Enter your name:', class: "my-2" %>
+                            <%= f.text_field :name, class: "form-control shadow", placeholder:'Your name here' %>
+                            <% @user.errors.full_messages_for(:name).each do |message| %>
+                               <div class="text-muted">
+                                    <%= message %>
+                                </div>
+                            <% end %>
+                        <div>
+                            <%= f.label 'Enter your password', class: "my-2" %>
+                            <%= f.password_field :password, class: "form-control shadow", placeholder:'Enter your password' %>
+                            <% @user.errors.full_messages_for(:password).each do |message| %>
+                                <div class="text-muted">
+                                    <%= message %>
+                                </div>
+                            <% end %>
+                            <%= f.label 'Enter your password again', class: "my-2" %>
+                            <%= f.password_field :password_confirmation, class: "form-control shadow", placeholder:'Re-enter password' %>
+                        <div>
                         <div class="container border rounded my-2 shadow">
                             <%= f.label "Profile picture" %>
                             <%= f.file_field :avatar, class:'my-2' %>

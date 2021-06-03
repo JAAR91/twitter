@@ -4,9 +4,13 @@ class SessionsController < ApplicationController
     if @user.nil?
       redirect_to login_path
       flash[:notice] = 'Username not found'
-    else
+    elsif @user.password == params[:password]
       session[:user_id] = @user.id
+      flash[:notice] = "Welcome back #{@user.name}"
       redirect_to root_path
+    else
+      flash[:notice] = 'Wrong password!'
+      redirect_to login_path
     end
   end
 
