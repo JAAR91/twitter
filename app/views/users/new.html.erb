@@ -12,6 +12,8 @@
                 <%= f.text_field :name, class: "form-control" %>
                 <%= f.label 'Username', class: "my-2" %>
                 <%= f.text_field :username, class: "form-control" %>
+                 <%= f.label 'Password', class: "my-2" %>
+                <%= f.text_field :password, class: "form-control" %>
                 <%= f.submit 'Create New Account', class:"btn btn-primary my-2" %> <%= link_to 'Login',login_path%>
             <% end %>
         </div>
