@@ -87,3 +87,11 @@
  .shadow-around {
     box-shadow: 0px 0px 10px black;
  }
+
+ .active {
+     background-color: rgba(40, 172, 224, 0.815);
+ }
+
+ .banner {
+     max-height: 300px;
+ }

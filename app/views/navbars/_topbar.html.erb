@@ -11,7 +11,7 @@
         </a>
         <ul class="dropdown-menu bg-info" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="/users/<%= current_user.id %>/edit">Edith Profile</a></li>
               <li> <%= link_to "Log Out", logout_path, class:'dropdown-item' %> </li>
         </ul>
       </div>

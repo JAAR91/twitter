@@ -18,23 +18,23 @@
     </li>
   </ul>
   <div class="d-flex flex-column align-items-baseline">
-    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="/" class="list-group-item-action p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'home') %>">
         <%= image_tag "home.png", class:'mx-2' %> 
         HOME
     </a>
-    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'connect') %>">
         <%= image_tag "at.png", class:'mx-2' %> 
         CONNECT
     </a>
-    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="#" class="list-group-item-actiona p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'discover') %>">
         <%= image_tag "hashtag.png", class:'mx-2' %> 
         DISCOVER
     </a>
-    <a href="/users/<%= current_user.id %>" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="/users/<%= current_user.id %>" class="list-group-item-action p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'profile') %>">
         <%= image_tag "user.png", class:'mx-2' %> 
         PROFILE
     </a>
-    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'statistics') %>">
         <%= image_tag "cake-graphic.png", class:'mx-2' %> 
         STATISTICS
     </a>
