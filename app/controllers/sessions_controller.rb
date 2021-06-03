@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user.nil?
       redirect_to login_path
+      flash[:notice] = 'Username not found'
     else
       session[:user_id] = @user.id
       redirect_to root_path

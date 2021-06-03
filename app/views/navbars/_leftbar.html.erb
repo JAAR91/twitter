@@ -1,6 +1,6 @@
 <nav class="col-2 d-flex flex-column left_bar_style">
   <div class="d-flex flex-row m-3 p-1">
-    <%= image_tag current_user.avatar, class:'user_avatar rounded img-thumbnail shadow-around' %>
+    <%= profile_pic(current_user.avatar) %>
     <div class="mx-2 p-0">
         <p class="left-bar-t-color m-0"><%= current_user.name %></p>
         <p class="text-muted">@<%= current_user.username %></p>

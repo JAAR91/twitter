@@ -1,24 +1,42 @@
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-
-        </div>
-        <div class="col-3">
-            <h1>New Users Page</h1>
-            <%= form_with model: @user do |f| %>
-                <%= f.label "Profile picture" %>
-                <%= f.file_field :avatar %>
-                <%= f.label 'Name', class: "my-2" %>
-                <%= f.text_field :name, class: "form-control" %>
-                <%= f.label 'Username', class: "my-2" %>
-                <%= f.text_field :username, class: "form-control" %>
-                 <%= f.label 'Password', class: "my-2" %>
-                <%= f.text_field :password, class: "form-control" %>
-                <%= f.submit 'Create New Account', class:"btn btn-primary my-2" %> <%= link_to 'Login',login_path%>
-            <% end %>
-        </div>
-        <div class="col-4">
-
+<div class="container row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+        <div class="bg-twitter-blue p-3 my-5 row rounded-3 shadow-lg">
+            <div class="col-6 border-end">
+                
+            </div>
+            <div class="col-6">
+                <div class="container">
+                    <h1>Register</h1>
+                    <%= form_with model: @user do |f| %>
+                        <%= f.label 'Enter your name:', class: "my-2" %>
+                        <%= f.text_field :name, class: "form-control shadow", placeholder:'Your name here' %>
+                        <% @user.errors.full_messages_for(:name).each do |message| %>
+                            <div class="text-muted">
+                                <%= message %>
+                            </div>
+                        <% end %>
+                        <%= f.label 'Enter your username:', class: "my-2" %>
+                        <%= f.text_field :username, class: "form-control shadow", placeholder:'Username' %>
+                        <%= f.label 'Enter your password', class: "my-2" %>
+                        <%= f.password_field :password, class: "form-control shadow", placeholder:'Enter your password' %>
+                        <%= f.label 'Enter your password again', class: "my-2" %>
+                        <%= f.password_field :password_confirmation, class: "form-control shadow", placeholder:'Re-enter password' %>
+                        <div class="container border rounded my-2 shadow">
+                            <%= f.label "Profile picture" %>
+                            <%= f.file_field :avatar, class:'my-2' %>
+                        </div>
+                        <div class="d-flex justify-content-end my-3">
+                            <%= f.submit "Register", class:"btn btn-outline-dark mx-2" %> 
+                            <%= link_to 'Login', login_path, class:'btn btn-outline-dark mx-2'%>
+                        </div>
+                    <% end %>
+                </div>
+                
+            </div>
         </div>
     </div>
 </div>
+
+ 

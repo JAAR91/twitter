@@ -10,8 +10,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div class="d-flex flex-row container position-relative h-100 shadow-around p-0">
+  <body class="position-relative">
+    <div class="d-flex flex-row container position-relative h-100 <%= mainpageshadowbox %> p-0">
       <%= left_bar_render %>
       <div class="d-flex flex-column w-100">
         <%= top_bar_render %>
@@ -21,6 +21,11 @@
         </div>
         
       </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+      <% flash.each do |type, msg| %>
+          <%= render "notification/notification", message: msg %>
+      <% end %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   </body>

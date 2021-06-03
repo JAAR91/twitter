@@ -18,4 +18,8 @@ module ApplicationHelper
     def rigth_bar_render
       render "navbars/rigthbar" if logged_in?
     end
+
+    def mainpageshadowbox
+     'shadow-around' if logged_in?
+    end
 end
