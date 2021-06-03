@@ -1,0 +1,29 @@
+<div class="container row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+        <div class="bg-twitter-blue p-3 my-5 row rounded-3 shadow-lg">
+            <div class="col-6 border-end">
+
+            </div>
+            <div class="col-6">
+                <h2 class="text-center">Log In</h2>
+                <div class="container">
+                    <%= form_tag '/login' do |f| %>
+                        <%= label_tag :username, "User name:", class:'my-2' %>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <%= text_field_tag (:username), "",class: "form-control rounded-end", placeholder:'Username' %> <br>
+                        </div>
+                        <%= label_tag :password, "Password:", class:'my-2' %>
+                        <%= password_field_tag (:password), "",class: "form-control", placeholder:'Password' %> <br>
+                        <div class="d-flex flex-row justify-content-end align-items-center">
+                            <%= submit_tag 'Log In', class:"btn btn-outline-dark mx-3" %>
+                            <%= link_to 'Register', new_user_path, class:'btn btn-outline-dark'%>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

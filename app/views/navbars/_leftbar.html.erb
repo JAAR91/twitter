@@ -1,0 +1,42 @@
+<nav class="col-2 d-flex flex-column left_bar_style">
+  <div class="d-flex flex-row m-3 p-1">
+    <%= profile_pic(current_user.avatar) %>
+    <div class="mx-2 p-0">
+        <p class="left-bar-t-color m-0"><%= current_user.name %></p>
+        <p class="text-muted">@<%= current_user.username %></p>
+    </div>
+  </div>
+  <ul class="d-flex flex-row border border-dark justify-content-around p-1">
+    <li class="d-flex flex-column align-items-center">
+        <p class="left-bar-t-color p-0 m-0">188</p>
+        <p class="text-muted p-0 m-0">following</p>
+    </li>
+    <li class="border border-dark list-group-item p-0"></li>
+    <li class="d-flex flex-column align-items-center">
+        <p class="left-bar-t-color p-0 m-0">184</p>
+        <p class="text-muted p-0 m-0">followers</p>
+    </li>
+  </ul>
+  <div class="d-flex flex-column align-items-baseline">
+    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+        <%= image_tag "home.png", class:'mx-2' %> 
+        HOME
+    </a>
+    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+        <%= image_tag "at.png", class:'mx-2' %> 
+        CONNECT
+    </a>
+    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+        <%= image_tag "hashtag.png", class:'mx-2' %> 
+        DISCOVER
+    </a>
+    <a href="/users/<%= current_user.id %>" class="list-group-item-action p-3 text-white text-decoration-none">
+        <%= image_tag "user.png", class:'mx-2' %> 
+        PROFILE
+    </a>
+    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+        <%= image_tag "cake-graphic.png", class:'mx-2' %> 
+        STATISTICS
+    </a>
+  </div>
+</nav>
