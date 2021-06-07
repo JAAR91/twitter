@@ -1,6 +1,6 @@
-<nav class="col-2 d-flex flex-column left_bar_style">
+<nav class="d-flex flex-column bg-leftbar m-0 position-sticky fixed-top">
   <div class="d-flex flex-row m-3 p-1">
-    <%= profile_pic(current_user.avatar) %>
+    <%= profile_pic(current_user.avatar, 'user_avatar rounded border') %>
     <div class="mx-2 p-0">
         <p class="left-bar-t-color m-0"><%= current_user.name %></p>
         <p class="text-muted">@<%= current_user.username %></p>
@@ -18,23 +18,23 @@
     </li>
   </ul>
   <div class="d-flex flex-column align-items-baseline">
-    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="/" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'home') %>">
         <%= image_tag "home.png", class:'mx-2' %> 
         HOME
     </a>
-    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="/users" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'connect') %>">
         <%= image_tag "at.png", class:'mx-2' %> 
         CONNECT
     </a>
-    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="#" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'discover') %>">
         <%= image_tag "hashtag.png", class:'mx-2' %> 
         DISCOVER
     </a>
-    <a href="/users/<%= current_user.id %>" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="/users/<%= current_user.id %>" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'profile') %>">
         <%= image_tag "user.png", class:'mx-2' %> 
         PROFILE
     </a>
-    <a href="#" class="list-group-item-action p-3 text-white text-decoration-none">
+    <a href="#" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'statistics') %>">
         <%= image_tag "cake-graphic.png", class:'mx-2' %> 
         STATISTICS
     </a>

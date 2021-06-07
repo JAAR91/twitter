@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
-  resources :users
+  resources :users do
+    resources :posts
+  end
 
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'

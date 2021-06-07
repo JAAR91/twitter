@@ -1,17 +1,18 @@
 <nav class="navbar navbar-light bg-info topbar-shadow sticky-top">
   <div class="container d-flex justify-content-between my-2">
-    <a class="mx-3" href="#"> <%= image_tag "twitter.png" %></a>
+    <a class="mx-3" href="/"> <%= image_tag "twitter.png" %></a>
     <div class="d-flex">
       <a class="mx-3" href="#"><%= image_tag "edit.png" %></a>
       <a class="mx-3" href="#"><%= image_tag "email.png" %></a>
       <a class="mx-3" href="#"><%= image_tag "loupe.png" %></a>
       <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle p-0 m-0" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle p-0 m-0" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <%= image_tag "settings.png" %>
         </a>
         <ul class="dropdown-menu bg-info" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="/users/<%= current_user.id %>/edit">Edith Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li> <%= link_to "Log Out", logout_path, class:'dropdown-item' %> </li>
         </ul>
       </div>
