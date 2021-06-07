@@ -10,17 +10,21 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="position-relative">
-    <div class="d-flex flex-row container position-relative h-100 <%= mainpageshadowbox %> p-0">
-      <%= left_bar_render %>
-      <div class="d-flex flex-column w-100">
-        <%= top_bar_render %>
-        <div class="d-flex flex-row position-relative m-0 p-0 w-100 h-100">
-          <%= yield %>
-        </div>
-        
+  <body>
+    <div class="container position-relative p-0">
+      <div class="row <%= mainpageshadowbox %>">
+          <div class="col-2 p-0 <%= leftbarcolor %> ">
+            <%= left_bar_render %>
+          </div>
+          <div class="col-10 d-flex flex-column m-0 p-0 <%= logginwide%>">
+            <%= top_bar_render %>
+            <div class="d-flex flex-row position-relative m-0 p-0 w-100 h-100">
+              <%= yield %>
+            </div>
+          </div>
       </div>
     </div>
+
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
       <% flash.each do |type, msg| %>
           <%= render "notification/notification", message: msg %>

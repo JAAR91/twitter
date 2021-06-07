@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: %i[new create]
 
+  def index
+    @user = User.all.where('id != ?', session[:user_id])
+  end
+
   def new
     @user = User.new
   end
@@ -12,8 +16,9 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
+
       flash.now[:notice] = 'PLease fill all the necessaary information! '
-      flash.now[:notice2] = 'Username cant be empty' if user_params[:username].nil?
+      flash.now[:notice2] = 'Username cant be empty or already on use' if user_params[:username].nil?
       flash.now[:notice3] = 'Name cant be empty or already exist! ' if user_params[:name] == ''
       flash.now[:notice4] = 'Password is require! ' if user_params[:password] == ''
       render :new
@@ -21,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
   end
 
   def edit

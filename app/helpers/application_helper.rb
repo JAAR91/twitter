@@ -22,4 +22,12 @@ module ApplicationHelper
   def mainpageshadowbox
     'shadow-around' if logged_in?
   end
+
+  def leftbarcolor
+    if logged_in?
+      'bg-leftbar' 
+    else
+      'd-none'
+    end
+  end
 end

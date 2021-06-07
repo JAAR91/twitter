@@ -13,7 +13,7 @@
                         <%= f.label 'Enter your username:', class: "my-2" %>
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">@</span>
-                            <%= text_field_tag (:username), "",class: "form-control rounded-end", placeholder:'Username' %> <br>
+                            <%= f.text_field :username, class: "form-control rounded-end", placeholder:'Username' %> <br>
                         </div>
                         <% @user.errors.full_messages_for(:username).each do |message| %>
                             <div class="text-muted">

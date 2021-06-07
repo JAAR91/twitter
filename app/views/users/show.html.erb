@@ -1,33 +1,57 @@
-<div class="row w-100 m-0 p-0 bg-dark position-relative">
+<div class="row w-100 m-0 p-0 bg-grey position-relative">
     <div class="col-9 p-0">
         <%= banner?(@user.banner, 'w-100 banner') %>
+        <nav>   
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link text-dark active" id="nav-tweets-tab" data-bs-toggle="tab" data-bs-target="#nav-tweets" type="button" role="tab" aria-controls="nav-tweets" aria-selected="true">TWEETS</button>
+                <button class="nav-link text-dark" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos" type="button" role="tab" aria-controls="nav-photos" aria-selected="false">PHOTOS</button>
+                <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">FOLLOWING</button>
+                <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">FOLLOWERS</button>
+                <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">FAVORITES</button>
+                <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">LISTS</button>
+            </div>
+        </nav>
+        <div class="tab-content position-relative form-size bg-grey" id="nav-tabContent">
+            <div class="tab-pane fade show active w-100 pt-3 bg-grey" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
+                <%= new_post(@user) %>
+                <%= render "posts/userposts", user: @user %>   
+            </div>
+            <div class="tab-pane fade show w-100 pt-3 bg-grey" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
+                <p>Hello there</p>
+            </div>
+        </div>
+        
+          
     </div>
-    <div class="col-3 bg-light p-0 border position-sticky">
-        <div class="d-flex justify-content-around align-items-center bg-light py-4">
-            <%= link_to "+", root_path, class:'btn btn-outline-secondary rounded-circle fs-3 py-0 px-3' %>
-            <%= profile_pic(@user.avatar, 'rounded-circle p-0') %>
-            <%= link_to image_tag('menu.png'), root_path, class:'btn btn-outline-secondary rounded-circle py-2' %>
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center border-bottom">
-        <p class="m-0 fs-4"><%= @user.name %></p>
-        <p class="text-muted">@<%= @user.username %></p>
-        </div>
-        <div class="row w-100 m-0 border-bottom">
-            <div class="col-4 d-flex flex-column justify-content-center align-items-center my-2">
-                <p class="m-0">6000</p>
-                <p class="m-0">Tweets</p>
+    <div class="col-3 p-0 border-start border-white position-relative">
+        <div class="position-sticky">
+            <div class="d-flex justify-content-around align-items-center py-4">
+                <%= follow_link(@user.id) %>
+                <%= profile_pic(@user.avatar, 'circle p-0 user_avatar border border-white') %>
+                <%= option_link(@user.id) %>
             </div>
-            <div class="col-4 d-flex flex-column justify-content-center align-items-center border-start border-end">
-                <p class="m-0">6000</p>
-                <p class="m-0">Followging</p>
+            <div class="d-flex flex-column justify-content-center align-items-center border-bottom border-white">
+            <p class="m-0 fs-4 text-uppercase text-center"><%= @user.name %></p>
+            <p class="text-muted">@<%= @user.username %></p>
             </div>
-            <div class="col-4 d-flex flex-column justify-content-center align-items-center">
-                <p class="m-0">6000</p>
-                <p class="m-0">Followers</p>
+            <div class="row w-100 m-0 border-bottom border-white">
+                <div class="col-4 d-flex flex-column justify-content-center align-items-center my-2">
+                    <p class="m-0"><%= @user.posts.count %></p>
+                    <p class="m-0">Tweets</p>
+                </div>
+                <div class="col-4 d-flex flex-column justify-content-center align-items-center border-start border-end border-white">
+                    <p class="m-0">6000</p>
+                    <p class="m-0">Followging</p>
+                </div>
+                <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                    <p class="m-0">6000</p>
+                    <p class="m-0">Followers</p>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <p class="fs-4 text-muted text-center py-3 border-bottom">Follwed by:</p>
-        </div>
+            <div class="container">
+                <p class="fs-4 text-muted text-center py-3 border-bottom border-white">Follwed by:</p>
+            </div>
+        </div>   
+
     </div>
 </div>

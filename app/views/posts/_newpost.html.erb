@@ -1,0 +1,6 @@
+<%= form_with model: [@user, @user.posts.new] do |f| %>
+    <div class="p-4 border rounded-3 bg-light m-3">
+        <%= f.label 'TWEET SOMETHING', class:'text-muted m-2 text-uppercase' %>
+        <%= f.text_field :body, class:'form-control', placeholder:'New tweet' %>
+    </div> 
+<%end%> 
