@@ -1,0 +1,7 @@
+<div class="mt-3 p-3 border-top">
+    <%= form_with model: [@user, @user.coments.new] do |f| %>
+        <%= f.text_field :post_id, value: post_id, type: :hidden  %>
+        <%= f.text_field :user_id, value: @user.id, type: :hidden  %>
+        <%= f.text_field :body, class:'form-control ', placeholder:'New coment' %>
+    <% end %>
+</div>

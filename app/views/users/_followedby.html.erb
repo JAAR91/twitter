@@ -1,7 +1,7 @@
         <ul class="list-group list-group-flush m-0 p-0">
             <% followers.each do |user|%>
                 <li class="list-group-item bg-transparent m-0 py-2 px-0">
-                    <div class="row">
+                    <div class="row m-0 p-2">
                         <div class="col-10 d-flex m-0 p-0">
                             <a href="/users/<%= user.id %>"><%= profile_pic(user.user.avatar, 'user_avatar rounded-circle followed-avatar') %></a>
                             <div class="d-flex flex-column p-0 m-0">

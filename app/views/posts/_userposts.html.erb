@@ -1,11 +1,11 @@
-<div class="rounded border m-5 mt-0">
+<div class="rounded border m-5 mt-0 oveflow-scroll">
     <% posts.ordered_posts.each do |f| %>
-        <div class="d-flex flex-column flex-row my-4 p-4 bg-light rounded">
+        <div class="d-flex flex-column flex-row my-4 p-4 bg-light rounded shadow">
             <div class="d-flex w-100 py-2 border-bottom"> 
-                <%= profile_pic(f.user.avatar, 'rounded p-0 user_avatar thumb-sm') %>
+                <%= link_to profile_pic(f.user.avatar, 'rounded p-0 user_avatar thumb-sm'), user_path(f.user.id) %>
                 <div class="d-flex flex-column w-100 mx-4 my-0 px-2">
                     <div class="d-flex w-100 justify-content-between">
-                        <p class="text-dark fs-5 m-0 p-0"> <%= f.user.name %></p>
+                        <%= link_to f.user.name, user_path(f.user.id), class:"text-dark fs-5 m-0 p-0 text-decoration-none" %>
                         <p class="text-muted fs-6 p-0 m-0"> <%= elapsed_time(f.created_at) %></p>
                     </div>
                     <p class="text-muted fs-6 p-0 m-0">@<%= f.user.username %></p>
@@ -13,6 +13,8 @@
             </div>
             <p class="text-muted m-3"> <%= f.body %></p>
             <%= picture?(f.picture, 'rounded border shadow post-picture') %>
-        </div> 
+             <%= render "coments/newcoment", post_id: f.id %>
+             <%= render "coments/postcoments", coments: f.coments %>
+        </div>
     <%end%>
 </div>

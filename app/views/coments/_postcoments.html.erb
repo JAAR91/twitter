@@ -1,0 +1,18 @@
+<% coments.ordered_coments.each do |f| %>
+    <div class="d-flex flex-column flex-row bg-light p-1 my-1 mx-3 rounded shadow">
+        <div class="d-flex w-100 p-2"> 
+            <%= link_to profile_pic(f.user.avatar, 'rounded p-0 user_avatar avatar-coments rounded-circle'), user_path(f.user.id) %>
+            <div class="d-flex flex-column w-100 m-0 p-0">
+                <div class="d-flex m-0 p-0">
+                    <%= link_to f.user.name, user_path(f.user.id), class:"text-dark m-0 px-2 text-decoration-none" %>
+                    <p class="text-muted fs-6 p-0 m-0">@<%= f.user.username %></p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p class="text-muted ms-3 my-0"> <%= f.body %></p>
+                    <p class="text-muted fs-6 p-0 m-0"><%= elapsed_time(f.created_at) %></p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<%end%>

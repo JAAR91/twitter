@@ -32,7 +32,7 @@ module UsersHelper
     if id == current_user.id
         return ''
     else
-        link_to image_tag('menu.png'), root_path, class:'btn btn-outline-secondary rounded-circle py-2'
+        link_to image_tag('menu.png'), root_path, class:'btn btn-outline-dark rounded-circle p-0 m-0 border-0'
     end
   end
 

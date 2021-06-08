@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'New post updated!'
       redirect_back(fallback_location: root_path)
     else
-      flash.now[:notice] = 'Unable to create twitt'
+      flash[:notice] = 'New post cant be empty'
       redirect_back(fallback_location: root_path)
     end
   end
@@ -22,6 +22,12 @@ class PostsController < ApplicationController
     @user = User.find(session[:user_id])
     ids = @user.followers.pluck(:follow_id) << @user.id
     @posts = Post.where(user_id: ids)
+  end
+
+  def ousers
+    @user = User.find(session[:user_id])
+    ids = @user.followers.pluck(:follow_id) << @user.id
+    @oposts = Post.where.not(user_id: ids)
   end
 
   private

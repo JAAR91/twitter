@@ -10,7 +10,7 @@ class FollowersController < ApplicationController
         @follow = @user.followers.new(follow_id: params[:follow_id])
     
         if @follow.save
-            flash[:notice] = "Now following!"
+            flash[:notice] = "Now following #{@follow.follow.name}!"
             redirect_back(fallback_location: root_path)
         else
             flash[:notice] = @follow
@@ -23,7 +23,7 @@ class FollowersController < ApplicationController
         @follow = @user.followers.find_by(follow_id: params[:follow_id])
         if @follow
             @follow.destroy
-            flash[:notice] = "You stop following!"
+            flash[:notice] = "You stop following #{@follow.follow.name}!"
             redirect_back(fallback_location: root_path)
         end
     end
