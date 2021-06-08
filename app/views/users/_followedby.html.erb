@@ -1,0 +1,18 @@
+        <ul class="list-group list-group-flush m-0 p-0">
+            <% followers.each do |user|%>
+                <li class="list-group-item bg-transparent m-0 py-2 px-0">
+                    <div class="row">
+                        <div class="col-10 d-flex m-0 p-0">
+                            <a href="/users/<%= user.id %>"><%= profile_pic(user.user.avatar, 'user_avatar rounded-circle followed-avatar') %></a>
+                            <div class="d-flex flex-column p-0 m-0">
+                                <%= link_to user.user.name, user_path(user.user_id), class:'text-decoration-none text-dark m-0 p-0' %>
+                                <p class="text-muted m-0">@<%= user.user.username %></p>
+                            </div>
+                        </div>
+                        <div class="col-1 m-0 d-flex"> 
+                            <%= follow_link(user.user_id) %>
+                        </div>
+                    </div>
+                </li>
+            <%end%>
+        </ul>

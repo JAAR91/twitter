@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :users do
+    resources :followers, only: [:create, :destroy]
     resources :posts
   end
 

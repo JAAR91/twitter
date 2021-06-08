@@ -5,6 +5,7 @@ module PostsHelper
 
     def seconds_to_hms(sec)
         return "#{sec} S" if sec <60
+        day = 0
         hour = 0
         min = 0
         while sec > 60
@@ -14,9 +15,15 @@ module PostsHelper
                 hour += 1
                 min = 0
             end
+            if hour == 24
+                day += 1
+                hour = 0
+            end
         end
 
-        if hour > 0
+        if day > 0
+            return "#{day} D"
+        elsif hour > 0
             return "#{hour} H"
         elsif min > 0
             return "#{min} M"
@@ -28,6 +35,12 @@ module PostsHelper
             return render "posts/newpost"
         else
             
+        end
+    end
+
+    def picture?(picture, style = nil)
+        if picture.attached?
+            image_tag picture, class:style
         end
     end
 end

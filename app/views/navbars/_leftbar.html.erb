@@ -8,12 +8,12 @@
   </div>
   <ul class="d-flex flex-row border border-dark justify-content-around p-1">
     <li class="d-flex flex-column align-items-center">
-        <p class="left-bar-t-color p-0 m-0">188</p>
+        <p class="left-bar-t-color p-0 m-0"><%= current_user.followers.count %></p>
         <p class="text-muted p-0 m-0">following</p>
     </li>
     <li class="border border-dark list-group-item p-0"></li>
     <li class="d-flex flex-column align-items-center">
-        <p class="left-bar-t-color p-0 m-0">184</p>
+        <p class="left-bar-t-color p-0 m-0"><%= current_user.inverted_followers.count %></p>
         <p class="text-muted p-0 m-0">followers</p>
     </li>
   </ul>

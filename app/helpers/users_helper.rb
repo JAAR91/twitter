@@ -3,7 +3,7 @@ module UsersHelper
     if avatar.attached?
         image_tag avatar, class: style
     else
-        image_tag 'empty_user.png', class: style
+        image_tag 'nocatfound.png', class: style
     end
     
   end
@@ -24,15 +24,7 @@ module UsersHelper
     if banner.attached?
         image_tag banner, class: style
     else
-        image_tag 'banner.png', class: style
-    end
-  end
-
-  def follow_link(id)
-    if id == current_user.id
-        return ''
-    else
-        link_to "+", root_path, class:'btn btn-outline-secondary rounded-circle fs-3 py-0 px-3'
+        image_tag 'noimagefound', class: style
     end
   end
 

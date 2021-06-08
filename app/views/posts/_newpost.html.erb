@@ -1,6 +1,16 @@
 <%= form_with model: [@user, @user.posts.new] do |f| %>
-    <div class="p-4 border rounded-3 bg-light m-3">
+    <div class="p-4 border rounded-3 bg-light mx-5 mt-4">
         <%= f.label 'TWEET SOMETHING', class:'text-muted m-2 text-uppercase' %>
-        <%= f.text_field :body, class:'form-control', placeholder:'New tweet' %>
+        <div class="input-group">
+            <div class="image-upload input-group-text">
+                <label for="file-input">
+                    <span class="glyphicon glyphicon-camera"></span>
+                    <%= image_tag "image.png" %>
+                </label>
+
+                <%= f.file_field :picture, id:"file-input" %>
+            </div>
+            <%= f.text_field :body, class:'form-control', placeholder:'New tweet' %>
+        </div>
     </div> 
 <%end%> 

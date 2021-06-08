@@ -1,5 +1,25 @@
-<p>
-You are on post index
-
-
-</p>
+<div class="col-9 container-fluid bg-grey p-0">
+    <nav class="border border-white w-100">   
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link text-dark active" id="nav-tweets-tab" data-bs-toggle="tab" data-bs-target="#nav-tweets" type="button" role="tab" aria-controls="nav-tweets" aria-selected="true">TWEETS</button>
+            <button class="nav-link text-dark" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos" type="button" role="tab" aria-controls="nav-photos" aria-selected="false">ACTIVITY</button>
+            <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">FIND FRIENDS</button>
+            <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">POPULAR</button>
+        </div>
+    </nav>
+    <div class="tab-content position-relative form-size bg-grey" id="nav-tabContent">
+        <%= render "newpost" %>
+        <div class="tab-pane fade show active w-100 pt-0 bg-grey my-0" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
+            <%= render "userposts", posts: @posts %>
+        </div>
+        <div class="tab-pane fade show w-100 pt-3 bg-grey" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
+            <p>Hello there</p>
+        </div>
+    </div>
+</div>
+<div class="col-3 h-100 bg-grey border border-white position-relative">
+    <div class="position-sticky sticky-top">
+        <%= render "users/whotofollow", newfollow: findnewfollowers(current_user) %>
+        <%= render "trendings" %>
+    <div>
+</div>

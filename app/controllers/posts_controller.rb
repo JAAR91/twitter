@@ -19,13 +19,15 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @user = User.find(session[:user_id])
+    ids = @user.followers.pluck(:follow_id) << @user.id
+    @posts = Post.where(user_id: ids)
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :picture)
   end
 
 end

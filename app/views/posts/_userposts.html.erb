@@ -1,15 +1,18 @@
-<div class="rounded border m-3">
-    <p class="text-muted p-4 border-bottom bg-light rounded">ALL TWEETS</p>
-    <% user.posts.ordered_posts.each do |f| %>
-        <div class="d-flex flex-row my-3 p-3 bg-light rounded">
-            <%= profile_pic(user.avatar, 'rounded-lg p-0 user_avatar') %>
-            <div class="w-100"> 
-                <div class="d-flex justify-content-between border-bottom mx-4 my-0 px-2">
-                    <p class="text-dark fs-5 m-0 p-0"> <%= f.user.name %></p>
-                    <p class="text-muted fs-6 p-0 m-0"> <%= elapsed_time(f.created_at) %></p>
+<div class="rounded border m-5 mt-0">
+    <% posts.ordered_posts.each do |f| %>
+        <div class="d-flex flex-column flex-row my-4 p-4 bg-light rounded">
+            <div class="d-flex w-100 py-2 border-bottom"> 
+                <%= profile_pic(f.user.avatar, 'rounded p-0 user_avatar thumb-sm') %>
+                <div class="d-flex flex-column w-100 mx-4 my-0 px-2">
+                    <div class="d-flex w-100 justify-content-between">
+                        <p class="text-dark fs-5 m-0 p-0"> <%= f.user.name %></p>
+                        <p class="text-muted fs-6 p-0 m-0"> <%= elapsed_time(f.created_at) %></p>
+                    </div>
+                    <p class="text-muted fs-6 p-0 m-0">@<%= f.user.username %></p>
                 </div>
-                <p class="text-muted m-3"> <%= f.body %></p>
             </div>
+            <p class="text-muted m-3"> <%= f.body %></p>
+            <%= picture?(f.picture, 'rounded border shadow post-picture') %>
         </div> 
     <%end%>
 </div>
