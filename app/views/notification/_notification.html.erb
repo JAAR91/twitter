@@ -1,6 +1,10 @@
-<div class="container shadow-around rounded bg-light d-flex align-items-center my-3" id="hideMe">
-    <div class="container m-2">
-        <%= message %>
-    </div>
-    <span class="btn-close mx-2 rounded border border-dark border-2 bg-info" id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'></span>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+    <% flash.each do |type, msg| %>
+        <div class="container shadow-around rounded bg-leftbar d-flex align-items-center my-3" id="hideMe">
+            <div class="container m-2">
+                <p class="fs-4 text-white m-0"><%= msg %></p>
+            </div>
+            <span class="btn-close p-1 rounded border border-dark border-2 bg-info" id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'></span>
+        </div>
+    <% end %>
 </div>

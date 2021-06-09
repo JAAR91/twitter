@@ -1,5 +1,5 @@
-<div class="row w-100 bg-light p-0 m-0">
-    <div class="col-8 p-0 m-0"> 
+<div class="row w-100 bg-grey p-0 m-0">
+    <div class="col-8 p-0 m-0 bg-grey"> 
         <div class="container p-5">
             <h1 class="text-center">Edit Profile</h1>
             <%= form_with model: @user do |f| %>
@@ -53,7 +53,7 @@
             <% end %>
         </div>
     </div>
-    <div class="col-4 m-0 border p-0 position-relative">
+    <div class="col-4 m-0 border border-white p-0 position-relative bg-grey">
         <%= banner?(@user.banner, "w-100 position-absolute container-fluid")%>
         <div class="p-0 border position-sticky">
         <div class="d-flex justify-content-around align-items-center py-2">

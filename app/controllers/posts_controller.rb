@@ -9,13 +9,12 @@ class PostsController < ApplicationController
   def create
     @user = User.find(session[:user_id])
     @post = @user.posts.new(post_params)
-    if @post.save
-      flash[:notice] = 'New post updated!'
-      redirect_back(fallback_location: root_path)
-    else
-      flash.now[:notice] = 'Unable to create twitt'
-      redirect_back(fallback_location: root_path)
-    end
+    flash[:notice] = if @post.save
+                       'New post updated!'
+                     else
+                       'New post cant be empty'
+                     end
+    redirect_back(fallback_location: root_path)
   end
 
   def index
@@ -24,10 +23,27 @@ class PostsController < ApplicationController
     @posts = Post.where(user_id: ids)
   end
 
+  def ousers
+    @user = User.find(session[:user_id])
+    ids = @user.followers.pluck(:follow_id) << @user.id
+    @oposts = Post.where.not(user_id: ids)
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post
+      @post.destroy
+      flash[:notice] = 'Post destroyed!'
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:notice] = 'Could not delete this post'
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:body, :picture)
   end
-
 end

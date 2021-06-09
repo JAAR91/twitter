@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :followers, only: [:create, :destroy]
     resources :posts
+    resources :coments, only: [:new, :create]
   end
 
+
+  get '/ousers', to: 'posts#ousers'
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'

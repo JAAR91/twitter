@@ -1,18 +1,24 @@
-<div class="rounded border m-5 mt-0">
-    <% posts.ordered_posts.each do |f| %>
-        <div class="d-flex flex-column flex-row my-4 p-4 bg-light rounded">
-            <div class="d-flex w-100 py-2 border-bottom"> 
-                <%= profile_pic(f.user.avatar, 'rounded p-0 user_avatar thumb-sm') %>
-                <div class="d-flex flex-column w-100 mx-4 my-0 px-2">
-                    <div class="d-flex w-100 justify-content-between">
-                        <p class="text-dark fs-5 m-0 p-0"> <%= f.user.name %></p>
-                        <p class="text-muted fs-6 p-0 m-0"> <%= elapsed_time(f.created_at) %></p>
+<div class="m-0 p-0 w-100">
+    <div class="px-4 m-0 posts-size ">
+        <% posts.ordered_posts.each do |f| %>
+            <div class="d-flex flex-column my-4 p-4 bg-light rounded-4 shadow">
+                <div class="d-flex w-100 py-2 position-relative"> 
+                    <%= delete_post(f) %>
+                    <%= link_to profile_pic(f.user.avatar, 'rounded-circle p-0 user_avatar thumb-sm shadow'), user_path(f.user.id) %>
+                    <div class="d-flex flex-column w-100 mx-1 my-0 px-1">
+                        <div class="d-flex align-items-end w-100">
+                            <%= link_to f.user.name, user_path(f.user.id), class:"text-dark fs-5 m-0 p-0 text-decoration-none" %>
+                            <%= link_to "· @#{f.user.username} ·", user_path(f.user.id), class:"text-muted fs-5 p-0 m-0 mx-2 text-decoration-none" %>
+                            <p class="text-muted fs-5 p-0 m-0"> <%= elapsed_time(f.created_at) %></p>
+                        </div>
+                        <p class="text-dark m-0 my-1 px-1 fs-5"> <%= f.body %></p>
+                        <%= picture?(f.picture, 'rounded-4 shadow w-100') %>
+                        <%= render "coments/newcoment", post_id: f.id %>
+                        <%= render "coments/postcoments", coments: f.coments %>
                     </div>
-                    <p class="text-muted fs-6 p-0 m-0">@<%= f.user.username %></p>
                 </div>
+                
             </div>
-            <p class="text-muted m-3"> <%= f.body %></p>
-            <%= picture?(f.picture, 'rounded border shadow post-picture') %>
-        </div> 
-    <%end%>
+        <%end%>
+    </div>
 </div>

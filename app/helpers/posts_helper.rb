@@ -1,46 +1,49 @@
 module PostsHelper
-    def elapsed_time(start)
-        "#{seconds_to_hms((Time.now - start).to_i)}"
-    end
+  def elapsed_time(start)
+    seconds_to_hms((Time.now - start).to_i).to_s
+  end
 
-    def seconds_to_hms(sec)
-        return "#{sec} S" if sec <60
-        day = 0
-        hour = 0
-        min = 0
-        while sec > 60
-            min += 1
-            sec -= 60
-            if min == 60
-                hour += 1
-                min = 0
-            end
-            if hour == 24
-                day += 1
-                hour = 0
-            end
-        end
+  def seconds_to_hms(sec)
+    return "#{sec} S" if sec < 60
 
-        if day > 0
-            return "#{day} D"
-        elsif hour > 0
-            return "#{hour} H"
-        elsif min > 0
-            return "#{min} M"
-        end
-    end
+    min = sec / 60
+    return "#{min} M" if min < 60
 
-    def new_post(user)
-        if user.id == current_user.id
-            return render "posts/newpost"
-        else
-            
-        end
-    end
+    hour = min / 60
+    return "#{hour} H" if hour < 24
+    day = hour / 24
+    hour = hour % 24
+    extra = " and #{hour} H" if hour > 0
+    return "#{day} D#{extra}" if day < 8
 
-    def picture?(picture, style = nil)
-        if picture.attached?
-            image_tag picture, class:style
-        end
+    week = day / 7
+    return "#{week} W" if week < 5
+
+    month = week / 4
+    return "#{month} M" if month < 13
+
+    month / 12
+  end
+
+  def new_post(user)
+    render 'posts/newpost' if user.id == current_user.id
+  end
+
+  def picture?(picture, style = nil)
+    image_tag picture, class: style if picture.attached?
+  end
+
+  def picture_posts(user)
+    ids = []
+    user.posts.each do |item| 
+      ids << item.id if item.picture.attached?
     end
+    Post.where(id: ids)
+  end
+
+  def delete_post(post)
+    if post.user_id == current_user.id
+      render 'posts/delete', id: post.id
+    end
+  end
 end
