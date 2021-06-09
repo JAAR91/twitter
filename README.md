@@ -5,13 +5,22 @@
 
 This project is a clone of Twitter with the design of Gregoire Vella. 
 
-<img src="lib/assets/">
-
+<img src="lib/assets/homes.png">
 
 The project contains a user log-in page and 'follows user' system, allowing the user to follow other users and see their posts, also each profile shows each user's amount of posts, followers, and users that person is following.
+
+<img src="lib/assets/profile.png">
+
 The main page allows you to see all the posts from the users you are following and, also includes a panel where you can see people you may be interested to follow.
- The menu is always present on all pages except for the login and signs in ones, the menu includes a home page, a connect page where you can find other users, a discover page where you can find posts from people you don't follow, a profile where you can see your profile and a statistics page that is not working at the moment.
+
+<img src="lib/assets/connect.png">
+
+The menu is always present on all pages except for the login and signs in ones, the menu includes a home page, a connect page where you can find other users, a discover page where you can find posts from people you don't follow, a profile where you can see your profile and a statistics page that is not working at the moment.
+
 The top menu bar contains the write new post, message icon, find icon, and options but only the options one is working at the moment, here you can log out of your account or edit your account.
+
+<img src="lib/assets/discover.png">
+
 The edit account options include the banner and profile picture.
 The post sections are shown either on the home or on each profile, with the difference that each profile will only show the posts from that user, each post allows you to post text and images, at the moment you can only upload one image per post.
 Each post has the option to have multiple comments from different users.
