@@ -8,7 +8,7 @@
                     <%= image_tag "image.png" %>
                 </label>
 
-                <%= f.file_field :picture, id:"file-input" %>
+                <%= f.file_field :picture, id:"file-input", multiple: false, accept:'image/*' %>
             </div>
             <%= f.text_field :body, class:'form-control', placeholder:'New tweet' %>
         </div>

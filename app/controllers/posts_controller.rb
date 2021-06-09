@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     flash[:notice] = if @post.save
                        'New post updated!'
                      else
-                       'New post cant be empty'
+                       'Post is empty or image have an invalid format'
                      end
     redirect_back(fallback_location: root_path)
   end

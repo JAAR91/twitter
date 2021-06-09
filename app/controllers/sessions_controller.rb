@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
       redirect_to login_path
       flash[:notice] = 'Username not found'
     elsif @current_user.password == params[:password]
-      session[:user_id] = @user.id
-      flash[:notice] = "Welcome back #{@user.name}"
+      session[:user_id] = @current_user.id
+      flash[:notice] = "Welcome back #{@current_user.name}"
       redirect_to root_path
     else
       @current_user = nil
