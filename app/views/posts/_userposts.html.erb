@@ -2,7 +2,8 @@
     <div class="px-4 m-0 posts-size ">
         <% posts.ordered_posts.each do |f| %>
             <div class="d-flex flex-column my-4 p-4 bg-light rounded-4 shadow">
-                <div class="d-flex w-100 py-2"> 
+                <div class="d-flex w-100 py-2 position-relative"> 
+                    <%= delete_post(f) %>
                     <%= link_to profile_pic(f.user.avatar, 'rounded-circle p-0 user_avatar thumb-sm shadow'), user_path(f.user.id) %>
                     <div class="d-flex flex-column w-100 mx-1 my-0 px-1">
                         <div class="d-flex align-items-end w-100">

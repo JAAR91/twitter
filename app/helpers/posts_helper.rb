@@ -32,4 +32,18 @@ module PostsHelper
   def picture?(picture, style = nil)
     image_tag picture, class: style if picture.attached?
   end
+
+  def picture_posts(user)
+    ids = []
+    user.posts.each do |item| 
+      ids << item.id if item.picture.attached?
+    end
+    Post.where(id: ids)
+  end
+
+  def delete_post(post)
+    if post.user_id == current_user.id
+      render 'posts/delete', id: post.id
+    end
+  end
 end

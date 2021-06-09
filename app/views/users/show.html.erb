@@ -18,7 +18,9 @@
                 <%= render "posts/userposts", posts: @user.posts %>   
             </div>
             <div class="tab-pane fade show w-100 pt-3 bg-grey" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
-                <p>Hello there</p>
+                 <%= new_post(@user) %>
+                <p class="text-muted p-4 border-bottom bg-light rounded my-2 mx-4">ALL PHOTOS</p>
+                <%= render "posts/userposts", posts: picture_posts(@user) %>
             </div>
         </div>
         

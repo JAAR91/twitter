@@ -29,6 +29,18 @@ class PostsController < ApplicationController
     @oposts = Post.where.not(user_id: ids)
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    if @post
+      @post.destroy
+      flash[:notice] = 'Post destroyed!'
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:notice] = 'Could not delete this post'
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
 
   def post_params
