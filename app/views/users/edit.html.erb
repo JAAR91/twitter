@@ -1,5 +1,5 @@
 <div class="row w-100 bg-grey p-0 m-0">
-    <div class="col-8 p-0 m-0 bg-grey"> 
+    <div class="col-8 p-0 m-0 shadow-inset"> 
         <div class="container p-5">
             <h1 class="text-center">Edit Profile</h1>
             <%= form_with model: @user do |f| %>
@@ -38,13 +38,13 @@
                 <div class="mx-5 px-5 my-3">
                     <div class="rounder border shadow">
                         <%= f.label "Profile picture" %><br>
-                        <%= f.file_field :avatar, class:'my-2' %>
+                        <%= f.file_field :avatar, class:'my-2', multiple: false, accept:'image/*' %>
                     </div>
                 </div>
                 <div class="mx-5 px-5">
                     <div class="container border rounded my-2 shadow">
                         <%= f.label "Banner" %>
-                        <%= f.file_field :banner, class:'my-2' %>
+                        <%= f.file_field :banner, class:'my-2', multiple: false, accept:'image/*' %>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center my-5">
@@ -53,7 +53,7 @@
             <% end %>
         </div>
     </div>
-    <div class="col-4 m-0 border border-white p-0 position-relative bg-grey">
+    <div class="col-4 m-0 border border-white p-0 position-relative">
         <%= banner?(@user.banner, "w-100 position-absolute container-fluid")%>
         <div class="p-0 border position-sticky">
         <div class="d-flex justify-content-around align-items-center py-2">
@@ -69,11 +69,11 @@
                 <p class="m-0 text-muted">Tweets</p>
             </div>
             <div class="col-4 d-flex flex-column justify-content-center align-items-center border-start border-end">
-                <p class="m-0">6000</p>
+                <p class="m-0"><%= @user.followers.count %></p>
                 <p class="m-0 text-muted">Followging</p>
             </div>
             <div class="col-4 d-flex flex-column justify-content-center align-items-center">
-                <p class="m-0">6000</p>
+                <p class="m-0"><%= @user.inverted_followers.count %></p>
                 <p class="m-0 text-muted">Followers</p>
             </div>
         </div>

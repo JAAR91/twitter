@@ -39,7 +39,7 @@
                         <div>
                         <div class="container border rounded my-2 shadow">
                             <%= f.label "Profile picture" %>
-                            <%= f.file_field :avatar, class:'my-2' %>
+                            <%= f.file_field :avatar, class:'my-2', multiple: false, accept:'image/*' %>
                         </div>
                         <div class="d-flex justify-content-end my-3">
                             <p class="pt-3 m-0">Already a user? got to<%= link_to 'Login Page', login_path, class:'link-dark mx-2'%></p>
