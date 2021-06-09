@@ -1,6 +1,6 @@
-<div class="row m-0 position-relative bg-grey">
-    <div class="col-9 bg-grey p-0 m-0">
-        <nav class="border border-white w-100">   
+<div class="row m-0 position-relative bg-grey h-min">
+    <div class="col-9 bg-grey p-0 m-0 shadow-inset">
+        <nav class="w-100">   
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link text-dark active" id="nav-tweets-tab" data-bs-toggle="tab" data-bs-target="#nav-tweets" type="button" role="tab" aria-controls="nav-tweets" aria-selected="true">TWEETS</button>
                 <button class="nav-link text-dark" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos" type="button" role="tab" aria-controls="nav-photos" aria-selected="false">ACTIVITY</button>
@@ -8,13 +8,10 @@
                 <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">POPULAR</button>
             </div>
         </nav>
-        <div class="tab-content form-size bg-grey" id="nav-tabContent">
+        <div class="tab-content form-size" id="nav-tabContent">
             <%= render "newpost" %>
-            <div class="tab-pane fade show active w-100 pt-0 bg-grey my-0" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
+            <div class="tab-pane fade show active w-100 p-0 bg-transparent m-0" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
                 <%= render "userposts", posts: @oposts %>
-            </div>
-            <div class="tab-pane fade show w-100 pt-3 bg-grey" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
-                <p>Hello there</p>
             </div>
         </div>
     </div>

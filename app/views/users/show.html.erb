@@ -1,5 +1,5 @@
-<div class="row w-100 m-0 p-0 bg-grey position-relative">
-    <div class="col-9 p-0">
+<div class="row w-100 m-0 p-0 bg-grey position-relative h-min">
+    <div class="col-9 p-0 shadow-inset">
         <%= banner?(@user.banner, 'w-100 banner') %>
         <nav>   
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -11,10 +11,10 @@
                 <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">LISTS</button>
             </div>
         </nav>
-        <div class="tab-content position-relative form-size bg-grey shadow-inset" id="nav-tabContent">
-            <div class="tab-pane fade show active w-100 pt-3 bg-grey" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
+        <div class="tab-content form-size" id="nav-tabContent">
+            <div class="tab-pane fade show active w-100 p-0 m-0 bg-transparent h-100" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
                 <%= new_post(@user) %>
-                <p class="text-muted p-4 border-bottom bg-light rounded mx-5 mt-3">ALL TWEETS</p>
+                <p class="text-muted p-4 border-bottom bg-light rounded my-2 mx-4">ALL TWEETS</p>
                 <%= render "posts/userposts", posts: @user.posts %>   
             </div>
             <div class="tab-pane fade show w-100 pt-3 bg-grey" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
@@ -25,35 +25,7 @@
           
     </div>
     <div class="col-3 p-0 border-start border-white position-relative m-0 bg-grey">
-        <div class="right-bar-position m-0 p-1">
-            <div class="d-flex justify-content-around align-items-center py-4">
-                <%= follow_link(@user.id) %>
-                <%= profile_pic(@user.avatar, 'circle p-0 user_avatar border border-white') %>
-                <%= option_link(@user.id) %>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center">
-            <p class="m-0 fs-4 text-uppercase text-center"><%= @user.name %></p>
-            <p class="text-muted">@<%= @user.username %></p>
-            </div>
-            <div class="row m-0 border-top border-bottom border-white p-0">
-                <div class="col-4 d-flex flex-column justify-content-center align-items-center">
-                    <p class="m-0 p-0"><%= @user.posts.count %></p>
-                    <p class="m-0 p-0 text-muted">Tweets</p>
-                </div>
-                <div class="col-4 py-2 d-flex flex-column justify-content-center align-items-center border-start border-end border-white">
-                    <p class="m-0"><%= @user.followers.count %></p>
-                    <p class="m-0 text-muted">Following</p>
-                </div>
-                <div class="col-4 d-flex flex-column justify-content-center align-items-center">
-                    <p class="m-0"><%= @user.inverted_followers.count %></p>
-                    <p class="m-0 text-muted">Followers</p>
-                </div>
-            </div>
-            <div>
-                <p class="fs-4 text-muted text-center py-3 border-bottom border-white m-0">Followed by:</p>
-                <%= render "followedby", followers: @user.inverted_followers.where('user_id != ?', current_user.id).last(4) %>
-            </div>
-        </div>   
+        <%= render "userprofile" %>  
 
     </div>
 </div>

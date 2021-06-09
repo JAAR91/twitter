@@ -18,23 +18,23 @@
     </li>
   </ul>
   <div class="d-flex flex-column align-items-baseline">
-    <a href="/" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'home') %>">
+    <a href="/" class="navbar-links w-100 p-3 text-white text-decoration-none <%= home_link(params[:controller], params[:action]) %>">
         <%= image_tag "home.png", class:'mx-2' %> 
         HOME
     </a>
-    <a href="/users" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'connect') %>">
+    <a href="/users" class="navbar-links w-100 p-3 text-white text-decoration-none <%= connect_link(params[:controller], params[:action]) %>">
         <%= image_tag "at.png", class:'mx-2' %> 
         CONNECT
     </a>
-    <a href="/ousers" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'discover') %>">
+    <a href="/ousers" class="navbar-links w-100 p-3 text-white text-decoration-none <%= discover_link(params[:controller], params[:action]) %>">
         <%= image_tag "hashtag.png", class:'mx-2' %> 
         DISCOVER
     </a>
-    <a href="/users/<%= current_user.id %>" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'profile') %>">
+    <a href="/users/<%= current_user.id %>" class="navbar-links w-100 p-3 text-white text-decoration-none <%= profile_link(params[:controller], params[:action]) %>">
         <%= image_tag "user.png", class:'mx-2' %> 
         PROFILE
     </a>
-    <a href="#" class="navbar-links w-100 p-3 text-white text-decoration-none <%= active_link(params[:controller], params[:action], 'statistics') %>">
+    <a href="#" class="navbar-links w-100 p-3 text-white text-decoration-none">
         <%= image_tag "cake-graphic.png", class:'mx-2' %> 
         STATISTICS
     </a>

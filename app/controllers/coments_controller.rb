@@ -1,5 +1,5 @@
 class ComentsController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @comment = Coment.new
@@ -9,11 +9,10 @@ class ComentsController < ApplicationController
     @comment = Coment.new(comment_params)
     if @comment.save
       flash[:notice] = 'New coment on post!'
-      redirect_back(fallback_location: root_path)
     else
       flash.now[:notice] = 'Unable to create comment'
-      redirect_back(fallback_location: root_path)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private

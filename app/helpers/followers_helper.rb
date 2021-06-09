@@ -1,8 +1,7 @@
 module FollowersHelper
-
   def follow_link(id)
     if id == current_user.id
-        return ''
+      ''
     else
       follow_check(id)
     end
@@ -19,7 +18,6 @@ module FollowersHelper
 
   def findnewfollowers(user)
     ids = user.followers.pluck(:follow_id) << user.id
-    return User.where.not(id: ids).last(3)
+    User.where.not(id: ids).last(3)
   end
-  
 end

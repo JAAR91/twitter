@@ -9,13 +9,12 @@ class PostsController < ApplicationController
   def create
     @user = User.find(session[:user_id])
     @post = @user.posts.new(post_params)
-    if @post.save
-      flash[:notice] = 'New post updated!'
-      redirect_back(fallback_location: root_path)
-    else
-      flash[:notice] = 'New post cant be empty'
-      redirect_back(fallback_location: root_path)
-    end
+    flash[:notice] = if @post.save
+                       'New post updated!'
+                     else
+                       'New post cant be empty'
+                     end
+    redirect_back(fallback_location: root_path)
   end
 
   def index
@@ -35,5 +34,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:body, :picture)
   end
-
 end
