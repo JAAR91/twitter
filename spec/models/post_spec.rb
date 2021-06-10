@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   it 'posts can be created without pictures' do
     user = User.create(name: 'first user', username: 'postuser', password: 'password')
     post = user.posts.new(body: 'fffirst post')
@@ -15,5 +14,4 @@ RSpec.describe Post, type: :model do
     user.posts.create(body: 'first post')
     expect(user.posts.count).to eq(3)
   end
-
 end

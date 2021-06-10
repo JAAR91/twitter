@@ -20,7 +20,7 @@ class User < ApplicationRecord
   def avatar_is_image
     if avatar.attached? && avatar.content_type !~ %r{^image/(jpeg|pjpeg|gif|png|bmp)$}
       errors.add(:upload,
-                  'Not a valid image on avatar')
+                 'Not a valid image on avatar')
     end
     nil
   end
