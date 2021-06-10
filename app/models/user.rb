@@ -12,17 +12,24 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :password, presence: true
 
-  validate :upload_is_image
+  validate :avatar_is_image
+  validate :banner_is_image
 
   private
 
-  def upload_is_image
-    if avatar.attached?
-      errors.add(:upload, "Not a valid image") unless avatar.content_type =~ /^image\/(jpeg|pjpeg|gif|png|bmp)$/
+  def avatar_is_image
+    if avatar.attached? && avatar.content_type !~ %r{^image/(jpeg|pjpeg|gif|png|bmp)$}
+      errors.add(:upload,
+                  'Not a valid image on avatar')
     end
+    nil
+  end
 
-    if banner.attached?
-      errors.add(:upload, "Not a valid image") unless banner.content_type =~ /^image\/(jpeg|pjpeg|gif|png|bmp)$/
+  def banner_is_image
+    if banner.attached? && banner.content_type !~ %r{^image/(jpeg|pjpeg|gif|png|bmp)$}
+      errors.add(:upload,
+                 'Not a valid image on banner')
     end
+    nil
   end
 end

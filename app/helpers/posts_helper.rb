@@ -11,10 +11,9 @@ module PostsHelper
 
     hour = min / 60
     return "#{hour} H" if hour < 24
+
     day = hour / 24
-    hour = hour % 24
-    extra = " and #{hour} H" if hour > 0
-    return "#{day} D#{extra}" if day < 8
+    return "#{day} D" if day < 8
 
     week = day / 7
     return "#{week} W" if week < 5
@@ -35,15 +34,13 @@ module PostsHelper
 
   def picture_posts(user)
     ids = []
-    user.posts.each do |item| 
+    user.posts.each do |item|
       ids << item.id if item.picture.attached?
     end
     Post.where(id: ids)
   end
 
   def delete_post(post)
-    if post.user_id == current_user.id
-      render 'posts/delete', id: post.id
-    end
+    render 'posts/delete', id: post.id if post.user_id == current_user.id
   end
 end

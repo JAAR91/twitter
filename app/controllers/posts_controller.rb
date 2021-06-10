@@ -34,11 +34,10 @@ class PostsController < ApplicationController
     if @post
       @post.destroy
       flash[:notice] = 'Post destroyed!'
-      redirect_back(fallback_location: root_path)
     else
       flash[:notice] = 'Could not delete this post'
-      redirect_back(fallback_location: root_path)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private

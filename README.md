@@ -1,9 +1,9 @@
 # README
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-### Micro Reddit
+### TWITTER
 
-This project is a clone of Twitter with the design of Gregoire Vella. 
+This project is a clone of Twitter with the design of [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). 
 
 <img src="lib/assets/homes.png">
 

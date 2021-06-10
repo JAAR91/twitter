@@ -49,12 +49,13 @@ module UsersHelper
 
   def logginwide
     return 'col-10' if logged_in?
+
     'col-12'
   end
 
   def newuser
     return 'col-2' if logged_in?
+
     ''
   end
-
 end

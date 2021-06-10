@@ -11,8 +11,9 @@ class Post < ApplicationRecord
   private
 
   def upload_is_image
-    if picture.attached?
-      errors.add(:upload, "Not a valid image") unless picture.content_type =~ /^image\/(jpeg|pjpeg|gif|png|bmp)$/
+    if picture.attached? && picture.content_type !~ %r{^image/(jpeg|pjpeg|gif|png|bmp)$}
+      errors.add(:upload, 'Not a valid image')
     end
+    nil
   end
 end
