@@ -1,49 +1,49 @@
-body, html {
+body,
+html {
   height: 100%;
   position: relative;
 }
 
 .background {
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-image: url('catpat2-1.jpg');
   background-size: 500px;
   z-index: -1;
-  opacity: 0.40;
-  box-shadow: inset 0px 0px 50px 30px black;
+  opacity: 0.4;
+  box-shadow: inset 0 0 50px 30px black;
 }
 
 #hideMe {
-  -moz-animation: cssAnimation 0s ease-in 5s forwards;
-    /* Firefox */
-  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-    /* Safari and Chrome */
-  -o-animation: cssAnimation 0s ease-in 5s forwards;
-    /* Opera */
-  animation: cssAnimation 0s ease-in 5s forwards;
+  -moz-animation: cssanimation 0s ease-in 5s forwards;
+  -webkit-animation: cssanimation 0s ease-in 5s forwards;
+  -o-animation: cssanimation 0s ease-in 5s forwards;
+  animation: cssanimation 0s ease-in 5s forwards;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+
 @keyframes cssAnimation {
   to {
-    width:0;
-    height:0;
-    overflow:hidden;
+    width: 0;
+    height: 0;
+    overflow: hidden;
   }
 }
+
 @-webkit-keyframes cssAnimation {
   to {
-    width:0;
-    height:0;
-    visibility:hidden;
+    width: 0;
+    height: 0;
+    visibility: hidden;
   }
 }
 
 .bg-leftbar {
- background-color: rgb(33, 44, 75);
+  background-color: rgb(33, 44, 75);
 }
 
 .user_avatar {
@@ -57,7 +57,7 @@ body, html {
 
 .navbar-link-list {
   text-decoration: none;
-  padding: 15px 0px 15px 0px;
+  padding: 15px 0 15px 0;
   text-align: center;
   color: rgb(206, 206, 206);
 }
@@ -78,7 +78,7 @@ body, html {
 }
 
 .shadow-around {
-  box-shadow: 0px 0px 10px black;
+  box-shadow: 0 0 10px 0 black;
 }
 
 .active {
@@ -101,17 +101,12 @@ body, html {
   border-radius: 50%;
 }
 
- .scrollbar-y {
-  overflow-y: scroll;
-  border: 1px solid red;
-  height: 100%;
- }
-
- .image-upload > input {
- display: none;
+.image-upload > input {
+  display: none;
 }
-.image-upload > label{
-  cursor:pointer;
+
+.image-upload > label {
+  cursor: pointer;
 }
 
 .thumb-sm {
@@ -134,12 +129,8 @@ body, html {
   width: 277px;
 }
 
-.red-border {
-  border: 1px solid red
-}
-
 .shadow-inset {
-  box-shadow: inset 0px 0px 15px 0px rgba(58, 58, 58, 0.397);
+  box-shadow: inset 0 0 15px 0 rgba(58, 58, 58, 0.397);
 }
 
 .avatar-coments {
@@ -149,7 +140,7 @@ body, html {
 
 .registerbackground {
   width: 100%;
-  opacity: 0.60;
+  opacity: 0.6;
 }
 
 .catlogo {
@@ -174,24 +165,20 @@ body, html {
   height: inherit;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
-  
-  /* Track */
+
 ::-webkit-scrollbar-track {
-  background: #ebfcff73; 
+  background: #ebfcff73;
 }
-   
-  /* Handle */
+
 ::-webkit-scrollbar-thumb {
-  background: rgb(84, 182, 218); 
+  background: rgb(84, 182, 218);
 }
-  
-  /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(80, 109, 121); 
+  background: rgb(80, 109, 121);
 }
 
 .h-min {
