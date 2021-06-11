@@ -35,7 +35,7 @@ module UsersHelper
     if banner.attached?
       image_tag banner, class: style
     else
-      image_tag 'noimagefound', class: style
+      image_tag 'noimagefound.png', class: style
     end
   end
 
