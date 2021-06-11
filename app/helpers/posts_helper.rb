@@ -43,4 +43,13 @@ module PostsHelper
   def delete_post(post)
     render 'posts/delete', id: post.id if post.user_id == current_user.id
   end
+
+  def oldestlink_destination(lastpostdate)
+    return 'This is the last page' if lastpostdate == 0
+    if params[:controller] == 'posts' && params[:action] == 'index'
+      link_to 'Previous Posts', root_path(lastpostdate: lastpostdate), class:"link-info"
+    elsif params[:controller] == 'posts' && params[:action] == 'ousers'
+      link_to 'Previous Posts', ousers_path(lastpostdate: lastpostdate), class:"link-info"
+    end
+  end
 end

@@ -18,15 +18,22 @@ class PostsController < ApplicationController
   end
 
   def index
+    date = Time.now
+    date = params[:lastpostdate] unless params[:lastpostdate].nil?
     @user = User.find(session[:user_id])
     ids = @user.followers.pluck(:follow_id) << @user.id
-    @posts = Post.where(user_id: ids)
+    @posts = Post.where(user_id: ids).where('created_at < ?', date).ordered_posts.includes(:coments).limit(10)
+    @lastpostdate = @posts.last.created_at
+    @lastpostdate = 0 if @posts.last.id == Post.where(user_id: ids).ordered_posts.last.id
   end
 
   def ousers
+    date = Time.now
+    date = params[:lastpostdate] unless params[:lastpostdate].nil?
     @user = User.find(session[:user_id])
     ids = @user.followers.pluck(:follow_id) << @user.id
-    @oposts = Post.where.not(user_id: ids)
+    @oposts = Post.where.not(user_id: ids).where('created_at < ?', date).ordered_posts.includes(:coments).limit(10)
+    @lastpostdate = @oposts.last.created_at
   end
 
   def destroy

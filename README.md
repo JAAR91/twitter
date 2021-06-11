@@ -50,7 +50,8 @@ Each post has the option to have multiple comments from different users.
 
 ### Install
 
-- run bundler install on your console
+- yarn install on your terminal
+- run bundler install on your terminal
 - run rails db:migrate to build the tables on the database
 
 ### Setup
