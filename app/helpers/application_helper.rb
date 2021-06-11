@@ -30,4 +30,10 @@ module ApplicationHelper
       'd-none'
     end
   end
+
+  def picture_link
+    return '' if current_user.nil?
+
+    current_user.id
+  end
 end

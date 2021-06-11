@@ -7,11 +7,6 @@ RSpec.describe User, type: :model do
       User.create(name: 'secod user', username: 'second', password: 'password')
       expect(User.all.count).to eq(2)
     end
-    it 'user creation test' do
-      User.create(name: 'firstuser user', username: 'firstuser', password: 'password')
-      p User.all.pluck(:name)
-      expect(User.all.count).to eq(1)
-    end
 
     it 'username cant be repetead' do
       User.create(name: 'firstusertest user', username: 'firstusertest', password: 'password')
