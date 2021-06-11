@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :coments, only: [:new, :create]
   end
 
+  resources :posts, only: [:show]
 
   get '/ousers', to: 'posts#ousers'
   get '/login', to: 'sessions#login'

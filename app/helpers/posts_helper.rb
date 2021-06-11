@@ -46,10 +46,16 @@ module PostsHelper
 
   def oldestlink_destination(lastpostdate)
     return 'This is the last page' if lastpostdate == 0
+
     if params[:controller] == 'posts' && params[:action] == 'index'
-      link_to 'Previous Posts', root_path(lastpostdate: lastpostdate), class:"link-info"
+      link_to 'Previous Posts', root_path(lastpostdate: lastpostdate), class: 'link-info'
     elsif params[:controller] == 'posts' && params[:action] == 'ousers'
-      link_to 'Previous Posts', ousers_path(lastpostdate: lastpostdate), class:"link-info"
+      link_to 'Previous Posts', ousers_path(lastpostdate: lastpostdate), class: 'link-info'
     end
+  end
+
+  def link_previouscoments(post)
+    return "<p class='text-muted text-center'>Last Page</p>".html_safe if @coments.count < 15
+    link_to "Previous comments..", post_path(id: @post.id, lastcomentdate: @coments.last.created_at), class:'link-dark text-center'
   end
 end

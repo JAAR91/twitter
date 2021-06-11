@@ -9,9 +9,32 @@
             </div>
         </nav>
         <div class="tab-content form-size" id="nav-tabContent">
-            <%= render "newpost" %>
             <div class="tab-pane fade show active w-100 p-0 bg-transparent m-0" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
-                <%= render "userposts", posts: @posts %>
+                <div class="m-0 p-0 w-100">
+                    <div class="px-4 m-0 posts-size ">
+                            <div class="d-flex flex-column my-4 p-4 bg-light rounded-4 shadow">
+                                <div class="d-flex w-100 py-2 position-relative"> 
+                                    <%= delete_post(@post) %>
+                                    <%= link_to profile_pic(@post.user.avatar, 'rounded-circle p-0 user_avatar thumb-sm shadow'), user_path(@post.user.id) %>
+                                    <div class="d-flex flex-column w-100 mx-1 my-0 px-1">
+                                        <div class="d-flex align-items-end w-100">
+                                            <%= link_to @post.user.name, user_path(@post.user.id), class:"text-dark fs-5 m-0 p-0 text-decoration-none" %>
+                                            <%= link_to "· @#{@post.user.username} ·", user_path(@post.user.id), class:"text-muted fs-5 p-0 m-0 mx-2 text-decoration-none" %>
+                                            <p class="text-muted fs-5 p-0 m-0"> <%= elapsed_time(@post.created_at) %></p>
+                                        </div>
+                                        <p class="text-dark m-0 my-1 px-1 fs-5"> <%= @post.body %></p>
+                                        <%= picture?(@post.picture, 'rounded-4 shadow w-100') %>
+                                        <%= render "coments/newcoment", post_id: @post.id %>
+                                        <%= render "coments/postcoments", coments: @coments %>
+                                        <div class="d-flex justify-content-center">
+                                            <%= link_to "Beginning", post_path(id: @post.id, lastcomentdate: nil), class:'link-dark mx-2' %>
+                                            <%= link_previouscoments(@post) %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

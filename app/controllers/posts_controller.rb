@@ -34,6 +34,7 @@ class PostsController < ApplicationController
     ids = @user.followers.pluck(:follow_id) << @user.id
     @oposts = Post.where.not(user_id: ids).where('created_at < ?', date).ordered_posts.includes(:coments).limit(10)
     @lastpostdate = @oposts.last.created_at
+    @lastpostdate = 0 if @oposts.last.id == Post.where.not(user_id: ids).ordered_posts.last.id
   end
 
   def destroy
@@ -45,6 +46,13 @@ class PostsController < ApplicationController
       flash[:notice] = 'Could not delete this post'
     end
     redirect_back(fallback_location: root_path)
+  end
+
+  def show
+    date = Time.now
+    date = params[:lastcomentdate] unless params[:lastcomentdate].nil?
+    @post = Post.find(params[:id])
+    @coments = @post.coments.where('created_at < ?', date).ordered_coments.limit(15)
   end
 
   private

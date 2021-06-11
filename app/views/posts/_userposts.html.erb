@@ -15,6 +15,7 @@
                         <%= picture?(f.picture, 'rounded-4 shadow w-100') %>
                         <%= render "coments/newcoment", post_id: f.id %>
                         <%= render "coments/postcoments", coments: f.coments.ordered_coments.limit(3) %>
+                        <%= link_to 'See more comments..', post_path(f.id), class:'link-info text-end mx-3' %>
                     </div>
                 </div>
             </div>
