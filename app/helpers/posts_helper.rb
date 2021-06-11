@@ -40,17 +40,52 @@ module PostsHelper
     Post.where(id: ids)
   end
 
-  def delete_post(post)
-    render 'posts/delete', id: post.id if post.user_id == current_user.id
+  def delete_post(apost)
+    render 'posts/delete', id: apost.id if apost.user_id == current_user.id
   end
 
-  def oldestlink_destination(lastpostdate)
+  def oldestlink_destination(lastpostdate, id = nil)
     return 'This is the last page' if lastpostdate == 'last'
+    return 'No posts found for curret user' if lastpostdate == 'emtpy'
 
+    result = lastpostindex(lastpostdate)
+    return result unless result.nil?
+
+    result = lastpostousers(lastpostdate)
+    return result unless result.nil?
+
+    result = lastpostsusers(lastpostdate, id)
+    return result unless result.nil?
+  end
+
+  def lastpostindex(lastpostdate)
     if params[:controller] == 'posts' && params[:action] == 'index'
-      link_to 'Previous Posts', root_path(lastpostdate: lastpostdate), class: 'link-info'
-    elsif params[:controller] == 'posts' && params[:action] == 'ousers'
-      link_to 'Previous Posts', ousers_path(lastpostdate: lastpostdate), class: 'link-info'
+      return link_to 'Previous Posts', root_path(lastpostdate: lastpostdate),
+                     class: 'link-info'
     end
+    nil
+  end
+
+  def lastpostousers(lastpostdate)
+    if params[:controller] == 'posts' && params[:action] == 'ousers'
+      return link_to 'Previous Posts', ousers_path(lastpostdate: lastpostdate),
+                     class: 'link-info'
+    end
+    nil
+  end
+
+  def lastpostsusers(lastpostdate, id)
+    if params[:controller] == 'users' && params[:action] == 'show'
+      return link_to 'Previous Posts', user_path(id, lastpostdate: lastpostdate),
+                     class: 'link-info'
+    end
+    nil
+  end
+
+  def posts_check(posts)
+    if posts.count.zero?
+      "<p class='rounded-4 bg-light shadow p-3 text-muted text-center'>No posts found for this user</p>".html_safe
+    end
+    nil
   end
 end

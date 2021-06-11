@@ -1,4 +1,5 @@
 <div class="position-absolute top-0 end-0 ">
+    
     <%= link_to image_tag('delete.png', class:'m-0 p-2'), user_post_path(current_user.id, id), method: :delete, 
         data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger border-0 rounded-circle m-0 p-0' %>
 </div>

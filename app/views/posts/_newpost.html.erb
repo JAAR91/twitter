@@ -1,5 +1,5 @@
 <%= form_with model: [@user, @user.posts.new] do |f| %>
-    <div class="p-4 border rounded-3 bg-light mx-4 my-3 ">
+    <div class="p-4 border rounded-4 bg-light mx-4 mt-3 shadow">
         <%= f.label 'TWEET SOMETHING', class:'text-muted m-2 text-uppercase' %>
         <div class="input-group">
             <div class="image-upload input-group-text">
@@ -7,7 +7,6 @@
                     <span class="glyphicon glyphicon-camera"></span>
                     <%= image_tag "image.png" %>
                 </label>
-
                 <%= f.file_field :picture, id:"file-input", multiple: false, accept:'image/*' %>
             </div>
             <%= f.text_field :body, class:'form-control', placeholder:'New tweet' %>

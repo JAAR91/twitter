@@ -1,8 +1,10 @@
 <nav class="d-flex flex-column bg-leftbar m-0 position-sticky fixed-top">
   <div class="d-flex flex-row m-3 p-1">
-    <%= profile_pic(current_user.avatar, 'user_avatar rounded border') %>
+    <a href="/users/<%= current_user.id %>">
+    <%= profile_pic(current_user.avatar, 'user_avatar rounded-4 border') %>
+    </a>
     <div class="mx-2 p-0">
-        <p class="left-bar-t-color m-0"><%= current_user.name %></p>
+        <a class="left-bar-t-color m-0 text-decoration-none link-light" href="/users/<%= current_user.id %>"><%= current_user.name %></a>
         <p class="text-muted">@<%= current_user.username %></p>
     </div>
   </div>

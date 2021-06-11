@@ -26,7 +26,16 @@ class UsersController < ApplicationController
   end
 
   def show
+    date = Time.now
+    date = params[:lastpostdate] unless params[:lastpostdate].nil?
     @user = User.find(params[:id])
+    @posts = @user.posts.where('created_at < ?', date).ordered_posts.includes(:coments).limit(5)
+    if @posts.count.zero?
+      @lastpostdate = 'empty'
+    else
+      @lastpostdate = @posts.last.created_at
+      @lastpostdate = 'last' if @posts.last.id == @user.posts.ordered_posts.last.id
+    end
   end
 
   def edit

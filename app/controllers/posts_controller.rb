@@ -22,9 +22,14 @@ class PostsController < ApplicationController
     date = params[:lastpostdate] unless params[:lastpostdate].nil?
     @user = User.find(session[:user_id])
     ids = @user.followers.pluck(:follow_id) << @user.id
-    @posts = Post.where(user_id: ids).where('created_at < ?', date).ordered_posts.includes(:coments).limit(10)
-    @lastpostdate = @posts.last.created_at
-    @lastpostdate = 'last' if @posts.last.id == Post.where(user_id: ids).ordered_posts.last.id
+    @posts = Post.where(user_id: ids).where('created_at < ?',
+                                            date).ordered_posts.limit(10).includes(:coments).includes(:user)
+    if @posts.count.zero?
+      @lastpostdate = 'emtpy'
+    else
+      @lastpostdate = @posts.last.created_at
+      @lastpostdate = 'last' if @posts.last.id == Post.where(user_id: ids).ordered_posts.last.id
+    end
   end
 
   def ousers
@@ -32,9 +37,14 @@ class PostsController < ApplicationController
     date = params[:lastpostdate] unless params[:lastpostdate].nil?
     @user = User.find(session[:user_id])
     ids = @user.followers.pluck(:follow_id) << @user.id
-    @oposts = Post.where.not(user_id: ids).where('created_at < ?', date).ordered_posts.limit(10).includes(:coments)
-    @lastpostdate = @oposts.last.created_at
-    @lastpostdate = 'last' if @oposts.last.id == Post.where.not(user_id: ids).ordered_posts.last.id
+    @posts = Post.where.not(user_id: ids).where('created_at < ?',
+                                                date).ordered_posts.limit(10).includes(:coments).includes(:user)
+    if @posts.count.zero?
+      @lastpostdate = 'empty'
+    else
+      @lastpostdate = @posts.last.created_at
+      @lastpostdate = 'last' if @posts.last.id == Post.where.not(user_id: ids).ordered_posts.last.id
+    end
   end
 
   def destroy

@@ -14,8 +14,8 @@
         <div class="tab-content form-size" id="nav-tabContent">
             <div class="tab-pane fade show active w-100 p-0 m-0 bg-transparent h-100" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
                 <%= new_post(@user) %>
-                <p class="text-muted p-4 border-bottom bg-light rounded my-2 mx-4">ALL TWEETS</p>
-                <%= render "posts/userposts", posts: @user.posts %>   
+                <p class="text-muted p-4 border-bottom bg-light rounded-4 mx-4 shadow mt-3 mb-0">ALL TWEETS</p>
+                <%= render "posts/userposts", posts: @posts %>   
             </div>
             <div class="tab-pane fade show w-100 pt-3 bg-grey" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
                  <%= new_post(@user) %>

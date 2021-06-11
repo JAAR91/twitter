@@ -2,10 +2,10 @@
     <div class="col-9 bg-grey shadow-inset">
         <ul class="list-group my-3">
             <% @user.each do |user|%>
-                <li class="m-1 border rounded shadow bg-light">
+                <li class="m-1 border rounded-4 shadow bg-light">
                     <div class="row m-3">
                         <div class="col-7 d-flex m-0">
-                            <a href="/users/<%= user.id %>"><%= profile_pic(user.avatar, 'user_avatar rounded') %></a>
+                            <a href="/users/<%= user.id %>"><%= profile_pic(user.avatar, 'user_avatar rounded-4') %></a>
                             <div class="d-flex flex-column mx-3">
                                 <%= link_to user.name, user_path(user.id), class:'fs-3 text-decoration-none text-dark' %>
                                 <p class="text-muted">@<%= user.username %></p>
