@@ -6,8 +6,10 @@ ruby '3.0.1'
 gem 'rexml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
-# Use sqlite3 as the database for Active Recor
-gem 'sqlite3'
+# Use sqlite3 as the database for Active Record
+group :development, :test do
+  gem 'sqlite3', '~> 1.3', '>= 1.3.11'
+end
 
 group :production do
   gem 'pg'
