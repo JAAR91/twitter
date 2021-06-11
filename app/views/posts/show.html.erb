@@ -27,7 +27,7 @@
                                         <%= render "coments/newcoment", post_id: @post.id %>
                                         <%= render "coments/postcoments", coments: @coments %>
                                         <div class="d-flex justify-content-center">
-                                            <%= link_to "Beginning", post_path(id: @post.id, lastcomentdate: nil), class:'link-dark mx-2' %>
+                                            <%= firstcomments(@coments) %>
                                             <%= link_previouscoments(@post) %>
                                         </div>
                                     </div>

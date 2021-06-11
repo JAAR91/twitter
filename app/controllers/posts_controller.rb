@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     ids = @user.followers.pluck(:follow_id) << @user.id
     @posts = Post.where(user_id: ids).where('created_at < ?', date).ordered_posts.includes(:coments).limit(10)
     @lastpostdate = @posts.last.created_at
-    @lastpostdate = 0 if @posts.last.id == Post.where(user_id: ids).ordered_posts.last.id
+    @lastpostdate = 'last' if @posts.last.id == Post.where(user_id: ids).ordered_posts.last.id
   end
 
   def ousers
@@ -32,9 +32,9 @@ class PostsController < ApplicationController
     date = params[:lastpostdate] unless params[:lastpostdate].nil?
     @user = User.find(session[:user_id])
     ids = @user.followers.pluck(:follow_id) << @user.id
-    @oposts = Post.where.not(user_id: ids).where('created_at < ?', date).ordered_posts.includes(:coments).limit(10)
+    @oposts = Post.where.not(user_id: ids).where('created_at < ?', date).ordered_posts.limit(10).includes(:coments)
     @lastpostdate = @oposts.last.created_at
-    @lastpostdate = 0 if @oposts.last.id == Post.where.not(user_id: ids).ordered_posts.last.id
+    @lastpostdate = 'last' if @oposts.last.id == Post.where.not(user_id: ids).ordered_posts.last.id
   end
 
   def destroy
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
     date = Time.now
     date = params[:lastcomentdate] unless params[:lastcomentdate].nil?
     @post = Post.find(params[:id])
-    @coments = @post.coments.where('created_at < ?', date).ordered_coments.limit(15)
+    @coments = @post.coments.where('created_at < ?', date).ordered_coments.limit(15).includes(:user)
   end
 
   private
