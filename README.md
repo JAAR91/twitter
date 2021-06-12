@@ -36,27 +36,60 @@ Each post has the option to have multiple comments from different users.
 
 - Web browser other than Internet Explorer
 
+- Postgreess instaled and set it up [see how](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
+
 ​
-### You can deploy this project forking it on GitHub and then going to:
+## Getting Started
 
-- Repository
+To get a local copy up and running follow these simple example steps.
 
-- Settings
+- First you need to fork the repository [twitter](https://github.com/JAAR91/twitter)
 
-- GitHub Pages(Select source)
+- Copy the ssh using the green code button
 
-- Save
+- Then you clone the repository to your pc using, the command on your terminal:
 
-
-### Install
-
-- yarn install on your terminal
-- run bundler install on your terminal
-- run rails db:migrate to build the tables on the database
+```
+git clone 'ssh code  you copy early'
+```
 
 ### Setup
 
-- Rails Server to run it
+Install gems with:
+
+```
+bundle install
+```
+
+Then use the following code on your terminal:
+
+```
+run yarn install
+```
+
+or 
+
+```
+npm install
+```
+
+Setup database with:
+
+```
+   rails db:create
+   rails db:migrate
+```
+
+### Usage
+
+Start server with:
+
+```
+    rails server
+```
+
+Open `http://localhost:3000/` in your browser.
+
 
 ### Build With
 
