@@ -1,0 +1,44 @@
+<nav class="d-flex flex-column bg-leftbar m-0 position-sticky fixed-top">
+  <div class="d-flex flex-row m-3 p-1">
+    <a href="/users/<%= current_user.id %>">
+    <%= profile_pic(current_user.avatar, 'user_avatar rounded-4 border') %>
+    </a>
+    <div class="mx-2 p-0">
+        <a class="left-bar-t-color m-0 text-decoration-none link-light" href="/users/<%= current_user.id %>"><%= current_user.name %></a>
+        <p class="text-muted">@<%= current_user.username %></p>
+    </div>
+  </div>
+  <ul class="d-flex flex-row border border-dark justify-content-around p-1">
+    <li class="d-flex flex-column align-items-center">
+        <p class="left-bar-t-color p-0 m-0"><%= current_user.followers.count %></p>
+        <p class="text-muted p-0 m-0">following</p>
+    </li>
+    <li class="border border-dark list-group-item p-0"></li>
+    <li class="d-flex flex-column align-items-center">
+        <p class="left-bar-t-color p-0 m-0"><%= current_user.inverted_followers.count %></p>
+        <p class="text-muted p-0 m-0">followers</p>
+    </li>
+  </ul>
+  <div class="d-flex flex-column align-items-baseline">
+    <a href="/" class="navbar-links w-100 p-3 text-white text-decoration-none <%= home_link(params[:controller], params[:action]) %>">
+        <%= image_tag "home.png", class:'mx-2' %> 
+        HOME
+    </a>
+    <a href="/users" class="navbar-links w-100 p-3 text-white text-decoration-none <%= connect_link(params[:controller], params[:action]) %>">
+        <%= image_tag "at.png", class:'mx-2' %> 
+        CONNECT
+    </a>
+    <a href="/ousers" class="navbar-links w-100 p-3 text-white text-decoration-none <%= discover_link(params[:controller], params[:action]) %>">
+        <%= image_tag "hashtag.png", class:'mx-2' %> 
+        DISCOVER
+    </a>
+    <a href="/users/<%= current_user.id %>" class="navbar-links w-100 p-3 text-white text-decoration-none <%= profile_link(params[:controller], params[:action]) %>">
+        <%= image_tag "user.png", class:'mx-2' %> 
+        PROFILE
+    </a>
+    <a href="/logout" class="navbar-links w-100 p-3 text-white text-decoration-none">
+        <%= image_tag "logout.png", class:'mx-2' %> 
+        LOG OUT
+    </a>
+  </div>
+</nav>

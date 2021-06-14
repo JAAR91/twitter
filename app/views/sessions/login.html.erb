@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row m-0">
+        <div class="d-none d-md-block col-2">
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="bg-twitter-blue p-3 my-5 row rounded-3 shadow-lg">
+                <div class="col-12 col-md-6 border-end position-relative">
+                    <h1 class="position-absolute text-sdark text-wrap p-3">Welcome to KITTEN</h1>
+                    <%= image_tag "registerbackground.jpg", class:'registerbackground p-0 w-100 h-100' %>
+                    <%= image_tag "blackcat.svg", class:'catlogo end-0 bottom-0' %>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h2 class="text-center">Log In</h2>
+                    <div class="container">
+                        <%= form_tag '/login' do |f| %>
+                            <%= label_tag :username, "User name:", class:'my-2' %>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                                <%= text_field_tag (:username), "",class: "form-control rounded-end", placeholder:'Username' %> <br>
+                            </div>
+                            <%= label_tag :password, "Password:", class:'my-2' %>
+                            <%= password_field_tag (:password), "",class: "form-control", placeholder:'Password' %> <br>
+                            <div class="d-flex flex-row justify-content-end align-items-center">
+                                <p class="m-0 pt-2">New  user? got to <%= link_to 'Register', new_user_path, class:'link-dark'%></p>
+                                <%= submit_tag 'Log In', class:"btn btn-outline-dark mx-3" %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

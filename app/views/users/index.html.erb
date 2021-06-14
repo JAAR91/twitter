@@ -1,0 +1,41 @@
+<div class="row w-100 m-0 p-0 bg-grey vh-100">
+    <div class="col-9 bg-grey shadow-inset">
+        <ul class="list-group my-3">
+            <% @user.each do |user|%>
+                <li class="m-1 border rounded-4 shadow bg-light">
+                    <div class="row m-3">
+                        <div class="col-7 d-flex m-0">
+                            <a href="/users/<%= user.id %>"><%= profile_pic(user.avatar, 'user_avatar rounded-4') %></a>
+                            <div class="d-flex flex-column mx-3">
+                                <%= link_to user.name, user_path(user.id), class:'fs-3 text-decoration-none text-dark' %>
+                                <p class="text-muted">@<%= user.username %></p>
+                            </div>
+                        </div>
+                        <div class="col-4 row m-0 p-0">
+                            <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <p class="m-0"><%= user.posts.count %></p>
+                                <p class="m-0 text-muted">Tweets</p>
+                            </div>
+                            <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <p class="m-0"><%= user.followers.count %></p>
+                                <p class="m-0 text-muted">Followging</p>
+                            </div>
+                            <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <p class="m-0"><%= user.inverted_followers.count %></p>
+                                <p class="m-0 text-muted">Followers</p>
+                            </div>
+                        </div>
+                        <div class="col-1 m-0 d-flex align-items-center "> 
+                            <%= follow_check(user.id) %>
+                        </div>
+                    </div>
+                </li>
+            <%end%>
+        </ul>
+    </div>
+    <div class="col-3 m-0 p-0 border border-white">
+        <div class="h-100 w-100 bg-grey ">
+        
+        </div>
+    </div>
+</div>

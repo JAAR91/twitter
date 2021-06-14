@@ -1,0 +1,46 @@
+<div class="row m-0 position-relative bg-grey h-min">
+    <div class="col-9 bg-grey p-0 m-0 shadow-inset">
+        <nav class="w-100">   
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link text-dark active" id="nav-tweets-tab" data-bs-toggle="tab" data-bs-target="#nav-tweets" type="button" role="tab" aria-controls="nav-tweets" aria-selected="true">TWEETS</button>
+                <button class="nav-link text-dark" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos" type="button" role="tab" aria-controls="nav-photos" aria-selected="false">ACTIVITY</button>
+                <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">FIND FRIENDS</button>
+                <button class="nav-link text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">POPULAR</button>
+            </div>
+        </nav>
+        <div class="tab-content form-size" id="nav-tabContent">
+            <div class="tab-pane fade show active w-100 p-0 bg-transparent m-0" id="nav-tweets" role="tabpanel" aria-labelledby="nav-tweets-tab">
+                <div class="m-0 p-0 w-100">
+                    <div class="px-4 m-0 posts-size ">
+                            <div class="d-flex flex-column my-4 p-4 bg-light rounded-4 shadow">
+                                <div class="d-flex w-100 py-2 position-relative"> 
+                                    <%= delete_post(@post) %>
+                                    <%= link_to profile_pic(@post.user.avatar, 'rounded-circle p-0 user_avatar thumb-sm shadow'), user_path(@post.user.id) %>
+                                    <div class="d-flex flex-column w-100 mx-1 my-0 px-1">
+                                        <div class="d-flex align-items-end w-100">
+                                            <%= link_to @post.user.name, user_path(@post.user.id), class:"text-dark fs-5 m-0 p-0 text-decoration-none" %>
+                                            <%= link_to "· @#{@post.user.username} ·", user_path(@post.user.id), class:"text-muted fs-5 p-0 m-0 mx-2 text-decoration-none" %>
+                                            <p class="text-muted fs-5 p-0 m-0"> <%= elapsed_time(@post.created_at) %></p>
+                                        </div>
+                                        <p class="text-dark m-0 my-1 px-1 fs-5"> <%= @post.body %></p>
+                                        <%= picture?(@post.picture, 'rounded-4 shadow w-100') %>
+                                        <%= render "coments/newcoment", post_id: @post.id %>
+                                        <%= render "coments/postcoments", coments: @coments %>
+                                        <div class="d-flex justify-content-center">
+                                            <%= firstcomments(@coments) %>
+                                            <%= link_previouscoments(@post) %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 bg-grey border border-white m-0 p-0 bg-grey">
+        <div class="right-bar-position">
+            <%= render "users/whotofollow", newfollow: findnewfollowers(current_user) %>
+        </div>
+    </div>
+</div>
