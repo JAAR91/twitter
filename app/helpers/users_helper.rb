@@ -60,7 +60,8 @@ module UsersHelper
   end
 
   def editlink(style = nil)
-    return link_to "Edit Profile", edit_user_path(@user.id), class: style if @user.id == current_user.id
+    return link_to 'Edit Profile', edit_user_path(@user.id), class: style if @user.id == current_user.id
+
     nil
   end
 end

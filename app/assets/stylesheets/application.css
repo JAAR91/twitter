@@ -21,6 +21,10 @@ html {
   box-shadow: inset 0 0 50px 30px black;
 }
 
+.sticky {
+  top: 60px;
+}
+
 #hideMe {
   -moz-animation: cssanimation 0s ease-in 5s forwards;
   -webkit-animation: cssanimation 0s ease-in 5s forwards;
@@ -125,12 +129,6 @@ html {
 
 .border-grey {
   border: 2px solid rgb(65, 65, 65);
-}
-
-.right-bar-position {
-  position: fixed;
-  top: 60px;
-  width: 277px;
 }
 
 .shadow-inset {
