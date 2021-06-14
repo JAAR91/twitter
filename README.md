@@ -91,6 +91,16 @@ Start server with:
 Open `http://localhost:3000/` in your browser.
 
 
+### Test
+
+To test the functions of the project just run:
+
+```
+    rspec
+```
+
+If you want to add more test just go to rspec/features folder, create a new file for each for each one of  the tables.
+
 ### Build With
 
 - Ruby 

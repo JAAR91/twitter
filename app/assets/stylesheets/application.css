@@ -6,9 +6,7 @@ html {
 
 .catlogo {
   position: absolute;
-  width: 250px;
-  top: 30%;
-  left: 25%;
+  width: 200px;
 }
 
 .background {
@@ -140,8 +138,11 @@ html {
 }
 
 .registerbackground {
-  width: 100%;
   opacity: 0.6;
+}
+
+.red-border {
+  border: 1px solid red;
 }
 
 .mt-10 {
@@ -151,7 +152,6 @@ html {
 .text-sdark {
   color: black;
   z-index: 15;
-  right: 5%;
 }
 
 .posts-size {

@@ -1,11 +1,11 @@
 
-        <div class="bg-twitter-blue p-3 mt-10 mx-5 row rounded-3 shadow-lg shadow-around p-3">
-            <div class="col-lg-7 col-md-12 border-end position-relative">
-                <h1 class="position-absolute text-sdark">Welcome to KITTEN</h1>
-                <%= image_tag "registerbackground.jpg", class:'registerbackground p-0 w-100 h-100' %>
-                <%= image_tag "blackcat.svg", class:'catlogo' %>
+        <div class="bg-twitter-blue p-3 m-4 m-md-5 row rounded-3 shadow-lg shadow-around p-3">
+            <div class="col-12 col-md-6 position-relative p-0">
+                <h1 class="position-absolute text-sdark m-3">Welcome to KITTEN</h1>
+                <%= image_tag "registerbackground.jpg", class:'registerbackground m-0 p-0 w-100 h-100' %>
+                <%= image_tag "blackcat.svg", class:'catlogo end-0 bottom-0 m-3' %>
             </div>
-            <div class="col-lg-5 col-md-12">
+            <div class="col-12 col-md-6">
                 <div class="container">
                     <h2 class="text-white">Create your account</h2>
                     <%= form_with model: @user do |f| %>
