@@ -57,4 +57,45 @@ RSpec.describe 'Users' do
     click_button 'Log In'
     expect(page).to have_content '1'
   end
+
+  it 'cant acces any page if user is not logged in' do
+    visit '/users'
+    expect(page).to have_content 'Log In'
+  end
+
+  it 'user cant edit other profiles' do
+    user1 = User.create(name: 'big mouse head', username: 'deadmau5', password: 'password')
+    User.create(name: 'Dr. Meowington PhD', username: 'meowingtons', password: 'password')
+    visit '/login'
+    fill_in 'username', with: 'meowingtons'
+    fill_in 'password', with: 'password'
+    click_button 'Log In'
+    visit "/users/#{user1.id}"
+    expect(page).to_not have_content 'Edit Profile'
+  end
+
+  it 'user can only modify its own' do
+    user1 = User.create(name: 'big mouse head', username: 'deadmau5', password: 'password')
+    visit '/login'
+    fill_in 'username', with: 'deadmau5'
+    fill_in 'password', with: 'password'
+    click_button 'Log In'
+    visit "/users/#{user1.id}"
+    expect(page).to have_content 'Edit Profile'
+  end
+
+  it 'connect show all users' do
+    User.create(name: 'big mouse head', username: 'deadmau5', password: 'password')
+    User.create(name: 'Dr. Meowington PhD', username: 'meowingtons', password: 'password')
+    User.create(name: 'Saul Hudson', username: 'Slash', password: 'password')
+    User.create(name: 'Ozzy Osborne', username: 'ozzy', password: 'password')
+    visit '/login'
+    fill_in 'username', with: 'deadmau5'
+    fill_in 'password', with: 'password'
+    click_button 'Log In'
+    visit '/users'
+    User.all.each do |user|
+      expect(page).to have_content user.name
+    end
+  end
 end
