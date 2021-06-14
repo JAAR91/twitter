@@ -1,4 +1,3 @@
-# README
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 ### TWITTER
@@ -32,18 +31,18 @@ Each post has the option to have multiple comments from different users.
 
 ### Prerequisites
 
-- Windows, Mac or Linux machine 
+- Windows, Mac, or Linux machine 
 
 - Web browser other than Internet Explorer
 
-- Postgreess instaled and set it up [see how](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
+- Postgres installed and set it up [see how](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
 
 ​
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-- First you need to fork the repository [twitter](https://github.com/JAAR91/twitter)
+- First, you need to fork the repository [Twitter](https://github.com/JAAR91/twitter)
 
 - Copy the ssh using the green code button
 
@@ -80,6 +79,18 @@ Setup database with:
    rails db:migrate
 ```
 
+If you get and error while creating the database then you have to install Postgres, follow the steps [here](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart), once installed you only need to create a user and the database.
+
+To create the database type on your terminal:
+```
+sudo -u postgres psql
+```
+Then type:
+```
+createdb twitterdb
+```
+Now you cant try to create the database again.
+
 ### Usage
 
 Start server with:
@@ -93,13 +104,25 @@ Open `http://localhost:3000/` in your browser.
 
 ### Test
 
+To run test you need to create the test database with Postgres, first get into Postgres configuration using:
+```
+sudo -i -u Postgres
+```
+Then create the database using:
+```
+createdb twitterdbtest
+```
+To exit just type:
+```
+exit
+```
 To test the functions of the project just run:
 
 ```
     rspec
 ```
 
-If you want to add more test just go to rspec/features folder, create a new file for each for each one of  the tables.
+If you want to add more test just go to rspec/features folder, create a new file for each one of the tables.
 
 ### Build With
 
