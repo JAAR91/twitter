@@ -2,7 +2,7 @@
 
 ### TWITTER
 
-This project is a clone of Twitter with the design of [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). 
+This project is a clone of Twitter with the design of [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). All made with ruby on rails.
 
 <img src="lib/assets/homes.png">
 
