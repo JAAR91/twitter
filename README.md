@@ -2,7 +2,13 @@
 
 ### TWITTER
 
-This project is a clone of Twitter with the design of [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). All made with ruby on rails.
+This project is a clone of Twitter but the design was made by [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). 
+
+The project was made with ruby on rails, and include the following features:
+
+- Friend( Follow, unfollow)
+- Post (Create and destroy, includes posting a picture, posts are limited to 10 per page)
+- Comments on posts(ordered from last to first and also comments are limited to 15 per page) 
 
 <img src="lib/assets/homes.png">
 
