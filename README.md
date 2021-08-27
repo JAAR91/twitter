@@ -33,6 +33,8 @@ Clone website of Twitter. The project was made with ruby on rails, and include t
 
 Design made by [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). 
 
+### Images
+
 <img src="lib/assets/homes.png">
 
 The project contains a user log-in page and 'follows user' system, allowing the user to follow other users and see their posts, also each profile shows each user's amount of posts, followers, and users that person is following.
