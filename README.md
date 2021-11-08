@@ -97,10 +97,10 @@ Then use the following code on your terminal:
 run yarn install
 ```
 
-or 
+then
 
 ```
-npm install
+rails webpack:install
 ```
 
 Setup database with:
@@ -121,6 +121,11 @@ Then type:
 createdb twitterdb
 ```
 Now you cant try to create the database again.
+
+To make easier the creation of the database, use to create the database and create the tables at the same time:
+```
+bash createdb.sh
+```
 
 ### Usage
 
