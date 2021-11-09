@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:create, :index]
       resources :posts, only:[:index, :show] do
-        resources :comments
+        resources :coments
       end
       post '/login', to: 'authentication#authenticate'
     end
