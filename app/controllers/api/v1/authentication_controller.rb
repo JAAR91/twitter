@@ -4,8 +4,8 @@ class Api::V1::AuthenticationController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def authenticate
-    auth = AuthenticateUser.new(auth_params[:username], auth_params[:password]).call
-    render json: auth
+    authentication = AuthenticateUser.new(auth_params[:username], auth_params[:password]).call
+    render json: authentication
   end
 
   private
