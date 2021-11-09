@@ -166,16 +166,52 @@ If you want to add more test just go to rspec/features folder, create a new file
 - Rails
 - SQL
 
+## API usage
+
+To use the api firs you need to authenticate yourself and get a token key to be able to make request. To get your authentication key you need to make a api request to:
+```
+http://localhost:3000/api/v1/login
+```
+Remember 'localhost:3000' is the server ip addres and can be different base on you configuration. To get the key don't forget to send the username and password in the boyd of the api request, the header must be set to 'Content-type: application/json' and this is POST request.
+
+The if the information is correct the Api will return a alphanumeric code that you will use to make the rest of the Api request. Just make sure to use the toke inside the header as 'Authorization: <Token here>' for each new request.
+
+Have in mind the token is only valid for 24 hours.
+
+### API Features
+
+Get access to all post(GET):
+```
+http://localhost:3000/api/v1/posts
+```
+
+Get all the comments for a post(GET):
+```
+http://localhost:3000/api/v1/posts/'post id'
+```
+Add a new comment to a post(POST):
+```
+http://localhost:3000/api/v1/posts/'post id'/coments
+```
+
 
 👤 **Author**
 
 👤 **Jose Alberto Arriaga Ramos**
 
-- GitHub: [@jaarkira](https://github.com/jaarkira )
+- GitHub: [@jaar](https://github.com/jaar91 )
 
 - Twitter: [@91_jaar](https://twitter.com/91_jaar )
 
 - LinkedIn: [Jose Arriaga](https://www.linkedin.com/in/jaar/)
+
+👤 **David Alvarez**
+
+- GitHub: [GitHub](https://github.com/petumazo/)
+
+- Twitter: [LinkedIn](https://www.linkedin.com/in/davidalvarezmazzo/)
+
+- Twitter: [@petudeveloper](https://twitter.com/petudeveloper )
 ​
 
 ## 🤝 Contributing
