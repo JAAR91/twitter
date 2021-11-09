@@ -14,4 +14,15 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
   get '/logout', to: 'sessions#destroy'
+
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:create, :index]
+      resources :posts, only:[:index, :show] do
+        resources :coments
+      end
+      post '/login', to: 'authentication#authenticate'
+    end
+  end
+
 end

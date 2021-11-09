@@ -1,4 +1,5 @@
 class ComentsController < ApplicationController
+  skip_before_action :authorize_request
   before_action :authenticate_user!
 
   def new

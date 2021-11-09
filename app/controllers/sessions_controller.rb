@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorize_request
   def create
     @current_user = User.find_by(username: params[:username])
     if @current_user.nil?
