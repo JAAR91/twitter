@@ -68,7 +68,7 @@ Each post has the option to have multiple comments from different users.
 
 - Postgres installed and set it up [see how](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
 
-​
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -172,9 +172,9 @@ To use the api firs you need to authenticate yourself and get a token key to be 
 ```
 http://localhost:3000/api/v1/login
 ```
-Remember 'localhost:3000' is the server ip addres and can be different base on you configuration. To get the key don't forget to send the username and password in the boyd of the api request, the header must be set to 'Content-type: application/json' and this is POST request.
+Remember 'localhost:3000' is the server ip addres and can be different base on you configuration. To get the key don't forget to send the username and password in the body of the api request, the header must be set to 'Content-type: application/json' and this is POST request.
 
-The if the information is correct the Api will return a alphanumeric code that you will use to make the rest of the Api request. Just make sure to use the toke inside the header as 'Authorization: <Token here>' for each new request.
+If the information is correct the Api will return an alphanumeric code that you will use to make the rest of the Api request. Just make sure to use the token inside the header as 'Authorization: <Token here>' for each new request.
 
 Have in mind the token is only valid for 24 hours.
 
@@ -195,7 +195,7 @@ http://localhost:3000/api/v1/posts/'post id'/coments
 ```
 
 
-👤 **Author**
+**Authors**
 
 👤 **Jose Alberto Arriaga Ramos**
 
