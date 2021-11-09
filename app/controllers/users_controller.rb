@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize_request
-    before_action :authenticate_user!, except: %i[new create]
+  skip_before_action :authorize_request
+  before_action :authenticate_user!, except: %i[new create]
 
   def index
     @user = User.all.where('id != ?', session[:user_id])

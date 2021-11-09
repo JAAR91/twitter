@@ -1,5 +1,4 @@
 class Api::V1::AuthenticationController < ApplicationController
-
   skip_before_action :authorize_request
   skip_before_action :verify_authenticity_token
 

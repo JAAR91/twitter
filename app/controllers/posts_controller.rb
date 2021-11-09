@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-    skip_before_action :authorize_request
-    before_action :authenticate_user!
+  skip_before_action :authorize_request
+  before_action :authenticate_user!
 
   def new
     @user = User.find(session[:user_id])
