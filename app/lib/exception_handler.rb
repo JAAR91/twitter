@@ -19,11 +19,11 @@ module ExceptionHandler
 
   private
 
-  def four_twenty_two(e)
-    render json: e.message, status: :unprocessable_entity
+  def four_twenty_two(event)
+    render json: event.message, status: :unprocessable_entity
   end
 
-  def unauthorized_request(e)
-    render json: e.message, status: :unauthorized
+  def unauthorized_request(event)
+    render json: event.message, status: :unauthorized
   end
 end
